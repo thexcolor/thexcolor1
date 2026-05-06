@@ -1,198 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>X Color | Color-Led Branding</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X Color</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#0A0A0A;
-      --card:#1A1A1A;
-      --text:#FFFFFF;
-      --muted:#AAAAAA;
-      --primary:#FF3366;
-      --secondary:#6A5CFF;
-    }
+<style>
 
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:'Inter',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
+:root{
+  --bg:#0A0A0A;
+  --text:#FFFFFF;
+  --muted:#AAAAAA;
+  --primary:#FF3366;
+}
 
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:80px 20px;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    .center{text-align:center;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    h1{
-      font-size:2.8rem;
-      line-height:1.2;
-      margin-bottom:20px;
-    }
+/* ===== LAYOUT ===== */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
 
-    h2{
-      font-size:2rem;
-      margin-bottom:10px;
-    }
+.grid{
+  display:grid;
+  gap:30px;
+}
 
-    p{color:var(--muted);}
+.grid-2{
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  align-items:center;
+}
 
-    .btn{
-      display:inline-block;
-      padding:14px 26px;
-      border-radius:40px;
-      font-weight:bold;
-      text-decoration:none;
-      transition:0.2s;
-    }
+img{
+  width:100%;
+  display:block;
+}
 
-    .btn-primary{
-      background:var(--primary);
-      color:white;
-    }
+img:not(.logo){border-radius:16px;}
 
-    .btn-primary:hover{
-      background:#ff5c88;
-    }
+.logo{
+  height:28px;
+}
 
-    .grid{
-      display:grid;
-      gap:30px;
-    }
+/* ===== BUTTON ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:42px;
+  padding:0 24px;
+  border-radius:40px;
+  background:var(--primary);
+  color:white;
+  text-decoration:none;
+}
 
-    .grid-2{
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      align-items:center;
-    }
+/* ===== HEADER ===== */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(10,10,10,0.7);
+  backdrop-filter:blur(10px);
+}
 
-    .card{
-      background:var(--card);
-      border-radius:16px;
-      padding:20px;
-    }
+.nav-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 
-    img{
-      width:100%;
-      border-radius:16px;
-      display:block;
-    }
+.nav-right{
+  display:flex;
+  gap:20px;
+}
 
-    .hero-wrap{
-      background: radial-gradient(circle at center, rgba(255,51,102,0.15), transparent);
-      padding:20px;
-      border-radius:20px;
-    }
+/* ===== HERO ===== */
+.hero-wrap{
+  background:radial-gradient(circle, rgba(255,51,102,0.12), transparent);
+  padding:20px;
+  border-radius:20px;
+}
 
-    .logo{
-      height:30px;
-      margin-bottom:20px;
-    }
+/* ===== STORY (WORD MODE) ===== */
+.story{
+  height:400vh; /* longer for more words */
+}
 
-    .footer{
-      border-top:1px solid #1A1A1A;
-      color:#666;
-      font-size:0.9rem;
-      text-align:center;
-    }
+.story-track{
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  max-width:1100px;
+  margin:auto;
+}
 
-    @media(max-width:600px){
-      h1{font-size:2rem;}
-    }
-  </style>
+.story-step{
+  opacity:0.2;
+  font-size:2rem;
+  margin-bottom:12px;
+  transition:0.3s;
+}
+
+.story-step.active{
+  opacity:1;
+}
+
+/* ===== VISUAL ===== */
+.story-visual{
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.story-visual img{
+  width:60%;
+  transition:opacity 0.3s ease;
+}
+
+/* ===== REVEAL ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.footer{
+  text-align:center;
+  color:#666;
+  border-top:1px solid #1A1A1A;
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+<header class="nav">
+  <div class="nav-inner">
+    <img src="images/logo.png" class="logo">
+    <div class="nav-right">
+      <a href="#" class="btn">Get audit →</a>
+    </div>
+  </div>
+</header>
+
 <!-- HERO -->
-<section class="container">
-  <img src="images/logo.png" class="logo">
+<section class="container grid grid-2">
 
-  <div class="grid grid-2">
+  <div class="reveal">
+    <h1>
+      Color drives trust.<br>
+      Trust drives <span style="color:var(--primary)">growth.</span>
+    </h1>
+  </div>
 
-    <div>
-      <h1>
-        Color drives trust.<br>
-        Trust drives <span style="color:var(--primary);">growth.</span>
-      </h1>
+  <div class="hero-wrap reveal">
+    <img src="images/hero.jpg">
 
-      <p>
-        We build conversion-focused brand systems in 7 days — starting with color, not guesswork.
-      </p>
-
-      <a href="#" class="btn btn-primary">Get your free color audit →</a>
+    <div style="margin-top:20px;text-align:center;">
+      <a href="#" class="btn">Get your free audit →</a>
     </div>
+  </div>
 
-    <div class="hero-wrap">
-      <img src="images/hero.jpg" alt="Hero mockup">
-    </div>
+</section>
+
+<!-- STORY WORD-BY-WORD -->
+<section class="story">
+
+  <div class="story-track">
+
+    <div class="story-step">Color</div>
+    <div class="story-step">is</div>
+    <div class="story-step">not</div>
+    <div class="story-step">decoration.</div>
+
+    <div class="story-step">Wrong</div>
+    <div class="story-step">color</div>
+    <div class="story-step">creates</div>
+    <div class="story-step">hesitation.</div>
+
+    <div class="story-step">Right</div>
+    <div class="story-step">color</div>
+    <div class="story-step">creates</div>
+    <div class="story-step">action.</div>
 
   </div>
+
+  <div class="story-visual">
+    <img id="storyImage" src="images/before-after.jpg">
+  </div>
+
 </section>
 
 <!-- BEFORE AFTER -->
-<section class="container center">
+<section class="container center reveal">
   <h2>Same product. Better results.</h2>
-  <p>The only difference? Color strategy.</p>
-
-  <img src="images/before-after.jpg" alt="Before after comparison">
+  <img src="images/before-after.jpg">
 </section>
 
-<!-- CTA IMPACT -->
-<section class="container center">
+<!-- CTA -->
+<section class="container center reveal">
   <h2>Small change. Big impact.</h2>
-
-  <img src="images/cta-after.jpg" alt="CTA comparison">
+  <img src="images/cta-after.jpg">
 </section>
 
 <!-- PALETTE -->
-<section class="container center">
+<section class="container center reveal">
   <h2>Color with purpose.</h2>
-
-  <img src="images/palette.jpg" alt="Color system">
+  <img src="images/palette.jpg">
 </section>
 
 <!-- FOUNDER -->
-<section class="container grid grid-2">
-
+<section class="container grid grid-2 reveal">
   <div>
-    <img src="images/portrait.jpg" alt="Founder portrait">
+    <img src="images/portrait.jpg">
   </div>
-
   <div>
     <h2>Not a faceless agency.</h2>
-
-    <p>
-      You work directly with a founder.<br><br>
-      No layers. No delays. No fluff.<br><br>
-      Built with my family. Delivered personally.
-    </p>
-
-    <a href="#" class="btn btn-primary">Book a call →</a>
+    <p>Direct founder-led execution.</p>
   </div>
-
-</section>
-
-<!-- FINAL CTA -->
-<section class="container center">
-  <h2>Start with a free audit</h2>
-
-  <a href="#" class="btn btn-primary">Get your free color audit →</a>
 </section>
 
 <!-- FOOTER -->
 <section class="container footer">
-  © X Color • kris@thexcolor.com
+  © X Color
 </section>
+
+<script>
+
+/* REVEAL */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('active');
+  });
+});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* STORY WORD FLOW */
+const steps = document.querySelectorAll('.story-step');
+const img = document.getElementById('storyImage');
+
+const images = [
+  "images/before-after.jpg",
+  "images/cta-after.jpg",
+  "images/palette.jpg"
+];
+
+window.addEventListener('scroll',()=>{
+  let s = document.querySelector('.story');
+  let progress = (scrollY - s.offsetTop) / s.offsetHeight;
+  let i = Math.floor(progress * steps.length);
+
+  if(i >= 0 && i < steps.length){
+    steps.forEach((step,idx)=>{
+      step.classList.toggle('active', idx===i);
+    });
+
+    let imgIndex = Math.floor(i / 4);
+    img.src = images[imgIndex];
+  }
+});
+
+</script>
 
 </body>
 </html>
