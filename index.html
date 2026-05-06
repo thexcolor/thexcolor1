@@ -11,7 +11,7 @@
 
 :root{
   --bg:#0A0A0A;
-  --card:#1A1A1A;
+  --card:#141414;
   --text:#FFFFFF;
   --muted:#E0E0E0;
   --primary:#FF3366;
@@ -54,6 +54,10 @@ LAYOUT
   align-items:center;
 }
 
+.center{
+  text-align:center;
+}
+
 @media(max-width:900px){
 
   .grid-2{
@@ -70,7 +74,7 @@ NAVIGATION
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(10,10,10,0.78);
+  background:rgba(10,10,10,0.8);
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,0.05);
 }
@@ -205,16 +209,6 @@ HERO
 }
 
 /* =========================
-SECTION IMAGES
-========================= */
-
-.section-img{
-  width:100%;
-  border-radius:18px;
-  display:block;
-}
-
-/* =========================
 HEADLINES
 ========================= */
 
@@ -236,7 +230,81 @@ HEADLINES
 }
 
 /* =========================
-ROI CALCULATOR
+IMAGES
+========================= */
+
+.section-img{
+  width:100%;
+  border-radius:18px;
+  display:block;
+}
+
+/* =========================
+PRICING
+========================= */
+
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:40px;
+}
+
+@media(max-width:900px){
+
+  .pricing-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+.price-card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:24px;
+  padding:32px;
+  transition:0.25s ease;
+}
+
+.price-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,0.15);
+}
+
+.price-card.featured{
+  border-color:rgba(255,51,102,0.45);
+}
+
+.price-icon{
+  font-size:1.6rem;
+  margin-bottom:18px;
+}
+
+.price-card h3{
+  font-size:1.4rem;
+  margin-bottom:14px;
+}
+
+.price{
+  font-size:2rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:22px;
+}
+
+.price-card ul{
+  list-style:none;
+  margin-bottom:28px;
+}
+
+.price-card li{
+  color:#AAAAAA;
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+/* =========================
+CALCULATOR
 ========================= */
 
 .roi-box{
@@ -347,6 +415,11 @@ NAVIGATION
          Work
       </a>
 
+      <a href="#pricing"
+         class="nav-link">
+         Pricing
+      </a>
+
       <a href="#calculator"
          class="nav-link">
          Calculator
@@ -376,8 +449,6 @@ HERO
 
   <div class="grid grid-2">
 
-    <!-- LEFT -->
-
     <div class="hero-left reveal">
 
       <h1>
@@ -405,13 +476,11 @@ HERO
 
     </div>
 
-    <!-- RIGHT -->
-
     <div class="hero-right reveal">
 
       <img src="images/hero.jpg"
            class="hero-image"
-           alt="X Color Hero">
+           alt="Hero">
 
     </div>
 
@@ -420,7 +489,7 @@ HERO
 </section>
 
 <!-- =========================
-INTRO DIVIDER
+INTRO
 ========================= -->
 
 <section class="container reveal">
@@ -458,6 +527,10 @@ CTA IMAGE
 
 <section class="container reveal">
 
+  <h2 class="section-title">
+    Small change. Big impact.
+  </h2>
+
   <img src="images/cta-after.jpg"
        class="section-img">
 
@@ -480,6 +553,112 @@ PALETTE
 
   <img src="images/palette.jpg"
        class="section-img">
+
+</section>
+
+<!-- =========================
+PRICING
+========================= -->
+
+<section class="container reveal"
+         id="pricing">
+
+  <h2 class="section-title">
+    Pick your speed.
+  </h2>
+
+  <p class="section-sub"
+     style="font-size:1rem;">
+    Founder-led branding packages for modern startups.
+  </p>
+
+  <div class="pricing-grid">
+
+    <div class="price-card">
+
+      <div class="price-icon">
+        🔍
+      </div>
+
+      <h3>
+        Color Audit
+      </h3>
+
+      <div class="price">
+        $500
+      </div>
+
+      <ul>
+        <li>48-hour turnaround</li>
+        <li>Competitor analysis</li>
+        <li>Strategic palette direction</li>
+        <li>PDF recommendations</li>
+      </ul>
+
+      <a href="mailto:hello@thexcolor.com"
+         class="btn btn-primary">
+         Start audit →
+      </a>
+
+    </div>
+
+    <div class="price-card featured">
+
+      <div class="price-icon">
+        ⚡
+      </div>
+
+      <h3>
+        Visual Sprint
+      </h3>
+
+      <div class="price">
+        $1,500
+      </div>
+
+      <ul>
+        <li>48-hour delivery</li>
+        <li>Logo + palette system</li>
+        <li>Deck templates</li>
+        <li>Launch-ready assets</li>
+      </ul>
+
+      <a href="mailto:hello@thexcolor.com"
+         class="btn btn-primary">
+         Start sprint →
+      </a>
+
+    </div>
+
+    <div class="price-card">
+
+      <div class="price-icon">
+        🎨
+      </div>
+
+      <h3>
+        Full Identity
+      </h3>
+
+      <div class="price">
+        $2,500+
+      </div>
+
+      <ul>
+        <li>Full strategic identity</li>
+        <li>Logo suite</li>
+        <li>Brand system</li>
+        <li>Launch visuals</li>
+      </ul>
+
+      <a href="mailto:hello@thexcolor.com"
+         class="btn btn-primary">
+         Build brand →
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -544,16 +723,12 @@ FOUNDER
 
   <div class="grid grid-2">
 
-    <!-- LEFT IMAGE -->
-
     <div>
 
       <img src="images/portrait.jpg"
            class="founder-image">
 
     </div>
-
-    <!-- RIGHT COPY -->
 
     <div class="founder-copy">
 
