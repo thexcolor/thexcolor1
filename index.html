@@ -9,7 +9,6 @@
 
 <style>
 
-/* ===== SYSTEM ===== */
 :root{
   --bg:#0A0A0A;
   --text:#FFFFFF;
@@ -18,6 +17,10 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body{
   font-family:'Inter',sans-serif;
@@ -38,7 +41,6 @@ img{
   display:block;
 }
 
-/* Only content images stretch */
 .hero-img,
 .section-img,
 .story-visual img{
@@ -46,12 +48,10 @@ img{
   border-radius:16px;
 }
 
-/* ===== LOGO FIX (no stretch ever again) ===== */
+/* ===== LOGO FIX ===== */
 header .logo{
   height:28px;
   width:auto !important;
-  max-width:none !important;
-  border-radius:0;
 }
 
 /* ===== BUTTON ===== */
@@ -92,7 +92,7 @@ header .logo{
   justify-content:space-between;
 }
 
-/* ===== HERO FULL WIDTH ===== */
+/* ===== HERO ===== */
 .hero-full{
   padding:40px 20px 0;
 }
@@ -100,19 +100,18 @@ header .logo{
 .hero-wrap{
   max-width:1400px;
   margin:auto;
-  background:radial-gradient(circle, rgba(255,51,102,0.12), transparent);
+  background:radial-gradient(circle, rgba(255,51,102,0.1), transparent);
   padding:20px;
   border-radius:20px;
 }
 
 .hero-img{
   width:100%;
-  border-radius:16px;
 }
 
 /* ===== STORY ===== */
 .story{
-  height:350vh;
+  height:300vh;
 }
 
 .story-track{
@@ -126,15 +125,18 @@ header .logo{
   margin:auto;
 }
 
+/* smaller + smoother */
 .story-step{
-  opacity:0.25;
-  font-size:2rem;
-  margin-bottom:10px;
-  transition:0.3s;
+  opacity:0.2;
+  font-size:1rem; /* reduced from large */
+  margin-bottom:8px;
+  transition:opacity 0.4s ease, transform 0.4s ease;
+  transform:translateY(10px);
 }
 
 .story-step.active{
   opacity:1;
+  transform:translateY(0);
 }
 
 .story-visual{
@@ -148,14 +150,14 @@ header .logo{
 
 .story-visual img{
   width:60%;
-  transition:opacity 0.3s ease;
+  transition:opacity 0.4s ease;
 }
 
 /* ===== REVEAL ===== */
 .reveal{
   opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
+  transform:translateY(30px);
+  transition:0.8s ease;
 }
 
 .reveal.active{
@@ -168,6 +170,11 @@ header .logo{
   text-align:center;
   color:#666;
   border-top:1px solid #1A1A1A;
+}
+
+.footer a{
+  color:#FF3366;
+  text-decoration:none;
 }
 
 </style>
@@ -183,9 +190,8 @@ header .logo{
   </div>
 </header>
 
-<!-- HERO (FULL WIDTH, NO TEXT LEFT) -->
+<!-- HERO -->
 <section class="hero-full">
-
   <div class="hero-wrap">
     <img src="images/hero.jpg" class="hero-img">
 
@@ -193,10 +199,9 @@ header .logo{
       <a href="#" class="btn">Get your free audit →</a>
     </div>
   </div>
-
 </section>
 
-<!-- STORY WORD-BY-WORD -->
+<!-- STORY -->
 <section class="story">
 
   <div class="story-track">
@@ -222,13 +227,13 @@ header .logo{
 
 </section>
 
-<!-- BEFORE / AFTER -->
+<!-- BEFORE AFTER -->
 <section class="container center reveal">
   <h2>Same product. Better results.</h2>
   <img src="images/before-after.jpg" class="section-img">
 </section>
 
-<!-- CTA IMAGE -->
+<!-- CTA -->
 <section class="container center reveal">
   <h2>Small change. Big impact.</h2>
   <img src="images/cta-after.jpg" class="section-img">
@@ -245,9 +250,10 @@ header .logo{
   <img src="images/portrait.jpg" class="section-img">
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER WITH EMAIL -->
 <section class="container footer">
-  © X Color
+  <p>© X Color</p>
+  <p><a href="mailto:hello@thexcolor.com">hello@thexcolor.com</a></p>
 </section>
 
 <script>
@@ -260,7 +266,7 @@ const observer = new IntersectionObserver(entries=>{
 });
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* STORY FLOW */
+/* STORY SMOOTH FLOW */
 const steps = document.querySelectorAll('.story-step');
 const img = document.getElementById('storyImage');
 
@@ -270,18 +276,28 @@ const images = [
   "images/palette.jpg"
 ];
 
-window.addEventListener('scroll',()=>{
+let current = -1;
+
+window.addEventListener('scroll', () => {
   let s = document.querySelector('.story');
   let progress = (scrollY - s.offsetTop) / s.offsetHeight;
   let i = Math.floor(progress * steps.length);
 
-  if(i >= 0 && i < steps.length){
-    steps.forEach((step,idx)=>{
-      step.classList.toggle('active', idx===i);
+  if(i !== current && i >= 0 && i < steps.length){
+    current = i;
+
+    steps.forEach((step, idx)=>{
+      step.classList.toggle('active', idx === i);
     });
 
     let imgIndex = Math.floor(i / 4);
-    img.src = images[imgIndex];
+
+    img.style.opacity = 0.6;
+
+    requestAnimationFrame(()=>{
+      img.src = images[imgIndex];
+      img.style.opacity = 1;
+    });
   }
 });
 
