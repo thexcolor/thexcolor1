@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X Color | Color-Led Branding</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0A0A0A;
+      --card:#1A1A1A;
+      --text:#FFFFFF;
+      --muted:#AAAAAA;
+      --primary:#FF3366;
+      --secondary:#6A5CFF;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:80px 20px;
+    }
+
+    .center{text-align:center;}
+
+    h1{
+      font-size:2.8rem;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+
+    h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    p{color:var(--muted);}
+
+    .btn{
+      display:inline-block;
+      padding:14px 26px;
+      border-radius:40px;
+      font-weight:bold;
+      text-decoration:none;
+      transition:0.2s;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:#ff5c88;
+    }
+
+    .grid{
+      display:grid;
+      gap:30px;
+    }
+
+    .grid-2{
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      align-items:center;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:20px;
+    }
+
+    img{
+      width:100%;
+      border-radius:16px;
+      display:block;
+    }
+
+    .hero-wrap{
+      background: radial-gradient(circle at center, rgba(255,51,102,0.15), transparent);
+      padding:20px;
+      border-radius:20px;
+    }
+
+    .logo{
+      height:30px;
+      margin-bottom:20px;
+    }
+
+    .footer{
+      border-top:1px solid #1A1A1A;
+      color:#666;
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media(max-width:600px){
+      h1{font-size:2rem;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="container">
+  <img src="images/logo.png" class="logo">
+
+  <div class="grid grid-2">
+
+    <div>
+      <h1>
+        Color drives trust.<br>
+        Trust drives <span style="color:var(--primary);">growth.</span>
+      </h1>
+
+      <p>
+        We build conversion-focused brand systems in 7 days — starting with color, not guesswork.
+      </p>
+
+      <a href="#" class="btn btn-primary">Get your free color audit →</a>
+    </div>
+
+    <div class="hero-wrap">
+      <img src="images/hero.jpg" alt="Hero mockup">
+    </div>
+
+  </div>
+</section>
+
+<!-- BEFORE AFTER -->
+<section class="container center">
+  <h2>Same product. Better results.</h2>
+  <p>The only difference? Color strategy.</p>
+
+  <img src="images/before-after.jpg" alt="Before after comparison">
+</section>
+
+<!-- CTA IMPACT -->
+<section class="container center">
+  <h2>Small change. Big impact.</h2>
+
+  <img src="images/cta-after.jpg" alt="CTA comparison">
+</section>
+
+<!-- PALETTE -->
+<section class="container center">
+  <h2>Color with purpose.</h2>
+
+  <img src="images/palette.jpg" alt="Color system">
+</section>
+
+<!-- FOUNDER -->
+<section class="container grid grid-2">
+
+  <div>
+    <img src="images/portrait.jpg" alt="Founder portrait">
+  </div>
+
+  <div>
+    <h2>Not a faceless agency.</h2>
+
+    <p>
+      You work directly with a founder.<br><br>
+      No layers. No delays. No fluff.<br><br>
+      Built with my family. Delivered personally.
+    </p>
+
+    <a href="#" class="btn btn-primary">Book a call →</a>
+  </div>
+
+</section>
+
+<!-- FINAL CTA -->
+<section class="container center">
+  <h2>Start with a free audit</h2>
+
+  <a href="#" class="btn btn-primary">Get your free color audit →</a>
+</section>
+
+<!-- FOOTER -->
+<section class="container footer">
+  © X Color • kris@thexcolor.com
+</section>
+
+</body>
+</html>
