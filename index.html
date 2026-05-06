@@ -18,10 +18,6 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
-html {
-  scroll-behavior: smooth;
-}
-
 body{
   font-family:'Inter',sans-serif;
   background:var(--bg);
@@ -37,10 +33,6 @@ body{
 
 .center{text-align:center;}
 
-img{
-  display:block;
-}
-
 .hero-img,
 .section-img,
 .story-visual img{
@@ -48,7 +40,7 @@ img{
   border-radius:16px;
 }
 
-/* ===== LOGO FIX ===== */
+/* ===== LOGO ===== */
 header .logo{
   height:28px;
   width:auto !important;
@@ -105,10 +97,6 @@ header .logo{
   border-radius:20px;
 }
 
-.hero-img{
-  width:100%;
-}
-
 /* ===== STORY ===== */
 .story{
   height:300vh;
@@ -125,44 +113,41 @@ header .logo{
   margin:auto;
 }
 
-/* smaller + smoother */
 .story-step{
   opacity:0.2;
-  font-size:1rem; /* reduced from large */
+  font-size:1rem;
   margin-bottom:8px;
-  transition:opacity 0.4s ease, transform 0.4s ease;
-  transform:translateY(10px);
+  transition:0.4s;
 }
 
 .story-step.active{
   opacity:1;
-  transform:translateY(0);
 }
 
-.story-visual{
-  position:sticky;
-  top:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+/* ===== CALCULATOR ===== */
+.roi-box{
+  background:#1A1A1A;
+  border-radius:20px;
+  padding:30px;
+  max-width:500px;
+  margin:auto;
 }
 
-.story-visual img{
-  width:60%;
-  transition:opacity 0.4s ease;
+.roi-box input{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  margin-bottom:14px;
+  background:#2A2A2A;
+  border:none;
+  color:white;
+  border-radius:8px;
 }
 
-/* ===== REVEAL ===== */
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.8s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
+.roi-result{
+  margin-top:20px;
+  color:#FF3366;
+  font-weight:bold;
 }
 
 /* ===== FOOTER ===== */
@@ -174,7 +159,6 @@ header .logo{
 
 .footer a{
   color:#FF3366;
-  text-decoration:none;
 }
 
 </style>
@@ -194,7 +178,6 @@ header .logo{
 <section class="hero-full">
   <div class="hero-wrap">
     <img src="images/hero.jpg" class="hero-img">
-
     <div class="center" style="margin-top:24px;">
       <a href="#" class="btn">Get your free audit →</a>
     </div>
@@ -203,7 +186,6 @@ header .logo{
 
 <!-- STORY -->
 <section class="story">
-
   <div class="story-track">
     <div class="story-step">Color</div>
     <div class="story-step">is</div>
@@ -220,11 +202,26 @@ header .logo{
     <div class="story-step">creates</div>
     <div class="story-step">action.</div>
   </div>
+</section>
 
-  <div class="story-visual">
-    <img id="storyImage" src="images/before-after.jpg">
+<!-- ROI CALCULATOR -->
+<section class="container center">
+  <h2>How much are you losing?</h2>
+
+  <div class="roi-box">
+    <label>Monthly visitors</label>
+    <input type="number" id="visitors">
+
+    <label>Conversion rate (%)</label>
+    <input type="number" id="cvr">
+
+    <label>Average order value ($)</label>
+    <input type="number" id="aov">
+
+    <button class="btn" onclick="calc()">Calculate →</button>
+
+    <div id="result" class="roi-result"></div>
   </div>
-
 </section>
 
 <!-- BEFORE AFTER -->
@@ -233,7 +230,7 @@ header .logo{
   <img src="images/before-after.jpg" class="section-img">
 </section>
 
-<!-- CTA -->
+<!-- CTA IMAGE -->
 <section class="container center reveal">
   <h2>Small change. Big impact.</h2>
   <img src="images/cta-after.jpg" class="section-img">
@@ -245,12 +242,19 @@ header .logo{
   <img src="images/palette.jpg" class="section-img">
 </section>
 
-<!-- FOUNDER -->
-<section class="container reveal">
+<!-- FOUNDER + CTA -->
+<section class="container center">
   <img src="images/portrait.jpg" class="section-img">
+
+  <h2 style="margin-top:20px;">Work directly with me</h2>
+  <p style="color:#aaa; margin:10px 0 20px;">
+    No layers. No delays. Just focused execution.
+  </p>
+
+  <a href="#" class="btn">Book a call →</a>
 </section>
 
-<!-- FOOTER WITH EMAIL -->
+<!-- FOOTER -->
 <section class="container footer">
   <p>© X Color</p>
   <p><a href="mailto:hello@thexcolor.com">hello@thexcolor.com</a></p>
@@ -258,48 +262,18 @@ header .logo{
 
 <script>
 
-/* REVEAL */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add('active');
-  });
-});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+/* CALCULATOR */
+function calc(){
+  let v = +document.getElementById('visitors').value;
+  let c = +document.getElementById('cvr').value;
+  let a = +document.getElementById('aov').value;
 
-/* STORY SMOOTH FLOW */
-const steps = document.querySelectorAll('.story-step');
-const img = document.getElementById('storyImage');
+  let revenue = v * (c/100) * a;
+  let loss = revenue * 0.1;
 
-const images = [
-  "images/before-after.jpg",
-  "images/cta-after.jpg",
-  "images/palette.jpg"
-];
-
-let current = -1;
-
-window.addEventListener('scroll', () => {
-  let s = document.querySelector('.story');
-  let progress = (scrollY - s.offsetTop) / s.offsetHeight;
-  let i = Math.floor(progress * steps.length);
-
-  if(i !== current && i >= 0 && i < steps.length){
-    current = i;
-
-    steps.forEach((step, idx)=>{
-      step.classList.toggle('active', idx === i);
-    });
-
-    let imgIndex = Math.floor(i / 4);
-
-    img.style.opacity = 0.6;
-
-    requestAnimationFrame(()=>{
-      img.src = images[imgIndex];
-      img.style.opacity = 1;
-    });
-  }
-});
+  document.getElementById('result').innerText =
+    "Estimated lost revenue: $" + loss.toLocaleString();
+}
 
 </script>
 
