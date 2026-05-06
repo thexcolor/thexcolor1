@@ -9,6 +9,7 @@
 
 <style>
 
+/* ===== SYSTEM ===== */
 :root{
   --bg:#0A0A0A;
   --text:#FFFFFF;
@@ -31,25 +32,26 @@ body{
   padding:80px 20px;
 }
 
-.grid{
-  display:grid;
-  gap:30px;
-}
-
-.grid-2{
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  align-items:center;
-}
+.center{text-align:center;}
 
 img{
-  width:100%;
   display:block;
 }
 
-img:not(.logo){border-radius:16px;}
+/* Only content images stretch */
+.hero-img,
+.section-img,
+.story-visual img{
+  width:100%;
+  border-radius:16px;
+}
 
-.logo{
+/* ===== LOGO FIX (no stretch ever again) ===== */
+header .logo{
   height:28px;
+  width:auto !important;
+  max-width:none !important;
+  border-radius:0;
 }
 
 /* ===== BUTTON ===== */
@@ -63,6 +65,13 @@ img:not(.logo){border-radius:16px;}
   background:var(--primary);
   color:white;
   text-decoration:none;
+  font-weight:600;
+  transition:0.25s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(255,51,102,0.25);
 }
 
 /* ===== HEADER ===== */
@@ -83,21 +92,27 @@ img:not(.logo){border-radius:16px;}
   justify-content:space-between;
 }
 
-.nav-right{
-  display:flex;
-  gap:20px;
+/* ===== HERO FULL WIDTH ===== */
+.hero-full{
+  padding:40px 20px 0;
 }
 
-/* ===== HERO ===== */
 .hero-wrap{
+  max-width:1400px;
+  margin:auto;
   background:radial-gradient(circle, rgba(255,51,102,0.12), transparent);
   padding:20px;
   border-radius:20px;
 }
 
-/* ===== STORY (WORD MODE) ===== */
+.hero-img{
+  width:100%;
+  border-radius:16px;
+}
+
+/* ===== STORY ===== */
 .story{
-  height:400vh; /* longer for more words */
+  height:350vh;
 }
 
 .story-track{
@@ -112,9 +127,9 @@ img:not(.logo){border-radius:16px;}
 }
 
 .story-step{
-  opacity:0.2;
+  opacity:0.25;
   font-size:2rem;
-  margin-bottom:12px;
+  margin-bottom:10px;
   transition:0.3s;
 }
 
@@ -122,7 +137,6 @@ img:not(.logo){border-radius:16px;}
   opacity:1;
 }
 
-/* ===== VISUAL ===== */
 .story-visual{
   position:sticky;
   top:0;
@@ -149,6 +163,7 @@ img:not(.logo){border-radius:16px;}
   transform:translateY(0);
 }
 
+/* ===== FOOTER ===== */
 .footer{
   text-align:center;
   color:#666;
@@ -164,26 +179,17 @@ img:not(.logo){border-radius:16px;}
 <header class="nav">
   <div class="nav-inner">
     <img src="images/logo.png" class="logo">
-    <div class="nav-right">
-      <a href="#" class="btn">Get audit →</a>
-    </div>
+    <a href="#" class="btn">Get audit →</a>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="container grid grid-2">
+<!-- HERO (FULL WIDTH, NO TEXT LEFT) -->
+<section class="hero-full">
 
-  <div class="reveal">
-    <h1>
-      Color drives trust.<br>
-      Trust drives <span style="color:var(--primary)">growth.</span>
-    </h1>
-  </div>
+  <div class="hero-wrap">
+    <img src="images/hero.jpg" class="hero-img">
 
-  <div class="hero-wrap reveal">
-    <img src="images/hero.jpg">
-
-    <div style="margin-top:20px;text-align:center;">
+    <div class="center" style="margin-top:24px;">
       <a href="#" class="btn">Get your free audit →</a>
     </div>
   </div>
@@ -194,7 +200,6 @@ img:not(.logo){border-radius:16px;}
 <section class="story">
 
   <div class="story-track">
-
     <div class="story-step">Color</div>
     <div class="story-step">is</div>
     <div class="story-step">not</div>
@@ -209,7 +214,6 @@ img:not(.logo){border-radius:16px;}
     <div class="story-step">color</div>
     <div class="story-step">creates</div>
     <div class="story-step">action.</div>
-
   </div>
 
   <div class="story-visual">
@@ -218,33 +222,27 @@ img:not(.logo){border-radius:16px;}
 
 </section>
 
-<!-- BEFORE AFTER -->
+<!-- BEFORE / AFTER -->
 <section class="container center reveal">
   <h2>Same product. Better results.</h2>
-  <img src="images/before-after.jpg">
+  <img src="images/before-after.jpg" class="section-img">
 </section>
 
-<!-- CTA -->
+<!-- CTA IMAGE -->
 <section class="container center reveal">
   <h2>Small change. Big impact.</h2>
-  <img src="images/cta-after.jpg">
+  <img src="images/cta-after.jpg" class="section-img">
 </section>
 
 <!-- PALETTE -->
 <section class="container center reveal">
   <h2>Color with purpose.</h2>
-  <img src="images/palette.jpg">
+  <img src="images/palette.jpg" class="section-img">
 </section>
 
 <!-- FOUNDER -->
-<section class="container grid grid-2 reveal">
-  <div>
-    <img src="images/portrait.jpg">
-  </div>
-  <div>
-    <h2>Not a faceless agency.</h2>
-    <p>Direct founder-led execution.</p>
-  </div>
+<section class="container reveal">
+  <img src="images/portrait.jpg" class="section-img">
 </section>
 
 <!-- FOOTER -->
@@ -262,7 +260,7 @@ const observer = new IntersectionObserver(entries=>{
 });
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* STORY WORD FLOW */
+/* STORY FLOW */
 const steps = document.querySelectorAll('.story-step');
 const img = document.getElementById('storyImage');
 
