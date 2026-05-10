@@ -22,7 +22,24 @@
   />
 
   <style>
+.logo-box{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#0a0a0a;
+}
 
+.logo-image{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:8px;
+}
     *{
       margin:0;
       padding:0;
@@ -562,9 +579,13 @@
 
       <div class="logo">
 
-        <div class="logo-box">
-          LOGO
-        </div>
+        <img
+    src="images/xcolor-logo.png"
+    alt="xColor Logo"
+    class="logo-image"
+  />
+
+</div>
 
         <span>xColor</span>
 
