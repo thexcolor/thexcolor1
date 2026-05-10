@@ -50,7 +50,9 @@
       overflow-x:hidden;
       line-height:1.6;
     }
-
+body{
+  min-width:100%;
+}
     a{
       text-decoration:none;
       color:inherit;
@@ -62,9 +64,10 @@
     }
 
     .container{
-      width:min(1240px,90%);
-      margin:auto;
-    }
+  width:90%;
+  max-width:1240px;
+  margin:0 auto;
+}
 
     section{
       padding:120px 0;
@@ -212,8 +215,8 @@
       margin-bottom:28px;
     }
 
-    h1{
-      font-size:5.4rem;
+   h1{
+  font-size:clamp(3rem, 8vw, 5.4rem);
       line-height:0.92;
       letter-spacing:-4px;
       font-weight:300;
