@@ -1,157 +1,1183 @@
-<!-- REPLACE YOUR CURRENT SERVICES SECTION WITH THIS -->
+<!DOCTYPE html>
+<html lang="en">
 
-<section id="services">
+<head>
 
-  <div class="container">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div class="section-label">
-      Services
+  <title>xColor | AI-Driven Creative Performance Studio</title>
+
+  <meta
+    name="description"
+    content="xColor is a future-focused creative performance studio blending AI-assisted branding, cinematic storytelling, fleet graphics, signage, and real-world visual execution."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#050505;
+      --panel:#0b0b0b;
+      --text:#f4f4f4;
+      --muted:#919191;
+      --line:#161616;
+      --pink:#ff2d7a;
+      --purple:#8b5cf6;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1240px,90%);
+      margin:auto;
+    }
+
+    section{
+      padding:120px 0;
+      border-top:1px solid var(--line);
+      position:relative;
+    }
+
+    /* NAV */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:999;
+      background:rgba(5,5,5,0.68);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .logo-box{
+      width:50px;
+      height:50px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,0.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.65rem;
+      color:#666;
+      background:#0a0a0a;
+    }
+
+    .logo span{
+      font-size:1.9rem;
+      font-weight:300;
+      letter-spacing:-1px;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:38px;
+    }
+
+    .menu a{
+      color:#c9c9c9;
+      font-size:0.92rem;
+      transition:0.3s;
+    }
+
+    .menu a:hover{
+      color:white;
+    }
+
+    .btn{
+      padding:14px 24px;
+      border-radius:100px;
+      border:1px solid rgba(255,255,255,0.12);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition:0.35s;
+      font-size:0.92rem;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      background:linear-gradient(90deg,var(--purple),var(--pink));
+      border-color:transparent;
+    }
+
+    .btn-primary{
+      background:white;
+      color:black;
+      border:none;
+    }
+
+    .btn-primary:hover{
+      color:white;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:120px;
+      border:none;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:-2;
+    }
+
+    .hero-bg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0.38;
+      filter:brightness(0.7);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.88)),
+      radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(255,45,122,0.16), transparent 28%);
+      z-index:-1;
+    }
+
+    .hero-content{
+      max-width:860px;
+    }
+
+    .eyebrow{
+      color:var(--pink);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:0.78rem;
+      margin-bottom:28px;
+    }
+
+    h1{
+      font-size:5.4rem;
+      line-height:0.92;
+      letter-spacing:-4px;
+      font-weight:300;
+      margin-bottom:36px;
+    }
+
+    h1 span{
+      color:var(--pink);
+    }
+
+    .hero p{
+      max-width:680px;
+      color:#d0d0d0;
+      font-size:1.08rem;
+      line-height:1.9;
+      margin-bottom:46px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+
+    /* GLOBAL TYPO */
+
+    .section-label{
+      color:var(--pink);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:0.78rem;
+      margin-bottom:18px;
+    }
+
+    h2{
+      font-size:3.2rem;
+      line-height:1;
+      letter-spacing:-2px;
+      font-weight:300;
+      margin-bottom:28px;
+      max-width:860px;
+    }
+
+    h2 span{
+      color:var(--pink);
+    }
+
+    .section-text{
+      color:var(--muted);
+      line-height:1.9;
+      max-width:720px;
+      font-size:1rem;
+    }
+
+    /* FEATURE BLOCK */
+
+    .feature-block{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .feature-image{
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-image img{
+      height:620px;
+      object-fit:cover;
+    }
+
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+      margin-top:70px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#0b0b0b,#080808);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:28px;
+      padding:40px;
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(255,45,122,0.25);
+    }
+
+    .icon{
+      width:72px;
+      height:72px;
+      border-radius:20px;
+      background:linear-gradient(135deg,var(--purple),var(--pink));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.6rem;
+      margin-bottom:28px;
+    }
+
+    .card h3{
+      font-size:1.5rem;
+      margin-bottom:18px;
+      font-weight:500;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.85;
+      margin-bottom:26px;
+    }
+
+    .micro-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:0.3s;
+    }
+
+    .micro-link:hover{
+      color:var(--pink);
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:70px;
+    }
+
+    .project{
+      position:relative;
+      overflow:hidden;
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .project img{
+      height:560px;
+      object-fit:cover;
+      transition:0.6s;
+    }
+
+    .project:hover img{
+      transform:scale(1.05);
+    }
+
+    .project-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.88), transparent);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:32px;
+    }
+
+    .project-overlay h4{
+      font-size:1.5rem;
+      margin-bottom:10px;
+      font-weight:500;
+    }
+
+    .project-overlay p{
+      color:#d0d0d0;
+    }
+
+    /* PROCESS */
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:30px;
+      margin-top:70px;
+    }
+
+    .step{
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:24px;
+    }
+
+    .step-number{
+      font-size:3.4rem;
+      color:var(--pink);
+      font-weight:200;
+      margin-bottom:18px;
+    }
+
+    .step h5{
+      font-size:1.15rem;
+      margin-bottom:14px;
+      font-weight:500;
+    }
+
+    .step p{
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+    /* LAB */
+
+    .lab-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      margin-top:70px;
+    }
+
+    .lab-card{
+      background:#090909;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .lab-card img{
+      height:380px;
+      object-fit:cover;
+    }
+
+    .lab-content{
+      padding:34px;
+    }
+
+    .lab-content h4{
+      font-size:1.45rem;
+      margin-bottom:16px;
+      font-weight:500;
+    }
+
+    .lab-content p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:24px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:100px 0 60px;
+      border-top:1px solid var(--line);
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:60px;
+      flex-wrap:wrap;
+    }
+
+    .footer-brand{
+      max-width:460px;
+    }
+
+    .footer-brand p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-top:24px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:70px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links h6{
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:0.8rem;
+      margin-bottom:22px;
+    }
+
+    .footer-links a{
+      display:block;
+      color:var(--muted);
+      margin-bottom:14px;
+      transition:0.3s;
+    }
+
+    .footer-links a:hover{
+      color:white;
+    }
+
+    .copyright{
+      margin-top:70px;
+      color:#666;
+      font-size:0.85rem;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1100px){
+
+      .feature-block,
+      .services-grid,
+      .projects-grid,
+      .process-grid,
+      .lab-grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:3.8rem;
+      }
+
+      h2{
+        font-size:2.5rem;
+      }
+
+      .menu{
+        display:none;
+      }
+
+      section{
+        padding:90px 0;
+      }
+
+      .hero{
+        min-height:auto;
+        padding:160px 0 100px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+
+    <div class="container nav-wrap">
+
+      <div class="logo">
+
+        <div class="logo-box">
+          LOGO
+        </div>
+
+        <span>xColor</span>
+
+      </div>
+
+      <div class="menu">
+
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#lab">Lab</a>
+        <a href="#contact">Contact</a>
+
+        <a
+          href=""
+          class="btn"
+          onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR-CALENDLY-LINK'});return false;"
+        >
+          Start a Project
+        </a>
+
+      </div>
+
     </div>
 
-    <h2>
-      A MODERN CREATIVE PERFORMANCE <span>ECOSYSTEM.</span>
-    </h2>
+  </nav>
 
-    <div class="services-grid">
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-bg">
+
+      <img
+        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop"
+        alt="Hero Background"
+      />
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          AI-Driven Creative Performance Studio
+        </div>
+
+        <h1>
+          EXPLORING FUTURE <span>VISUAL SYSTEMS.</span>
+        </h1>
+
+        <p>
+          xColor blends branding intelligence, cinematic storytelling, AI-assisted creativity, fleet branding, signage systems, and real-world visual execution into premium future-focused experiences.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+          </a>
+
+          <a
+            href=""
+            class="btn"
+            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR-CALENDLY-LINK'});return false;"
+          >
+            Start a Project
+          </a>
+
+          <a href="#lab" class="btn">
+            Explore the Lab
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURE -->
+
+  <section>
+
+    <div class="container feature-block">
+
+      <div>
+
+        <div class="section-label">
+          The Studio
+        </div>
+
+        <h2>
+          BUILDING BRANDS THROUGH <span>MOTION, IDENTITY, AND SYSTEMS.</span>
+        </h2>
+
+        <p class="section-text">
+          xColor operates at the intersection of branding, physical implementation, AI-assisted creativity, and cinematic storytelling. We create scalable visual ecosystems designed for modern founders, premium businesses, and future-focused culture.
+        </p>
+
+      </div>
+
+      <div class="feature-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop"
+          alt="Fleet Wrap Pickup Truck"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-label">
+        Services
+      </div>
+
+      <h2>
+        A MODERN CREATIVE PERFORMANCE <span>ECOSYSTEM.</span>
+      </h2>
+
+      <div class="services-grid">
+
+        <div class="card">
+
+          <div class="icon">✦</div>
+
+          <h3>
+            xColor Identity
+          </h3>
+
+          <p>
+            Startup branding systems, founder identity, visual direction, and scalable brand architecture.
+          </p>
+
+          <a href="#identity-detail" class="micro-link">
+            Explore Identity →
+          </a>
+
+        </div>
+
+        <div class="card">
+
+          <div class="icon">◢</div>
+
+          <h3>
+            xColor Motion
+          </h3>
+
+          <p>
+            Fleet branding, signage systems, environmental graphics, and physical visual implementation.
+          </p>
+
+          <a href="#motion-detail" class="micro-link">
+            Explore Motion →
+          </a>
+
+        </div>
+
+        <div class="card">
+
+          <div class="icon">⟐</div>
+
+          <h3>
+            xColor Performance
+          </h3>
+
+          <p>
+            Motorsport-inspired aesthetics, cinematic content systems, and performance culture storytelling.
+          </p>
+
+          <a href="#performance-detail" class="micro-link">
+            Explore Performance →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DIVISION DETAILS -->
+
+  <section>
+
+    <div class="container">
 
       <!-- IDENTITY -->
 
-      <div class="card">
+      <div
+        id="identity-detail"
+        style="
+        padding-bottom:120px;
+        border-bottom:1px solid rgba(255,255,255,0.06);
+        margin-bottom:120px;"
+      >
 
-        <div class="icon">✦</div>
-
-        <h3 id="identity">
+        <div class="section-label">
           xColor Identity
-        </h3>
+        </div>
 
-        <p>
-          Startup branding systems, founder identity, visual direction, and scalable brand architecture.
+        <h2>
+          BUILDING FUTURE-FOCUSED <span>BRAND SYSTEMS.</span>
+        </h2>
+
+        <p class="section-text">
+          xColor Identity creates emotionally intelligent visual systems for startups, founders, and modern businesses. We combine cinematic storytelling, AI-assisted ideation, typography systems, and scalable branding architecture to help brands become distinctive and memorable.
         </p>
-
-        <a href="#identity-detail" class="micro-link">
-          Explore Identity →
-        </a>
 
       </div>
 
       <!-- MOTION -->
 
-      <div class="card">
+      <div
+        id="motion-detail"
+        style="
+        padding-bottom:120px;
+        border-bottom:1px solid rgba(255,255,255,0.06);
+        margin-bottom:120px;"
+      >
 
-        <div class="icon">◢</div>
-
-        <h3 id="motion">
+        <div class="section-label">
           xColor Motion
-        </h3>
+        </div>
 
-        <p>
-          Fleet branding, signage systems, environmental graphics, and physical visual implementation.
+        <h2>
+          REAL-WORLD BRANDING THROUGH <span>MOTION AND SCALE.</span>
+        </h2>
+
+        <p class="section-text">
+          xColor Motion specializes in fleet branding, signage systems, environmental graphics, and visual deployment. From pickup trucks to large commercial fleets, we transform physical spaces into cohesive brand experiences built for visibility and impact.
         </p>
-
-        <a href="#motion-detail" class="micro-link">
-          Explore Motion →
-        </a>
 
       </div>
 
       <!-- PERFORMANCE -->
 
-      <div class="card">
+      <div id="performance-detail">
 
-        <div class="icon">⟐</div>
-
-        <h3 id="performance">
+        <div class="section-label">
           xColor Performance
-        </h3>
+        </div>
 
-        <p>
-          Motorsport-inspired aesthetics, cinematic content systems, and performance culture storytelling.
+        <h2>
+          PERFORMANCE CULTURE MEETS <span>CINEMATIC STORYTELLING.</span>
+        </h2>
+
+        <p class="section-text">
+          xColor Performance explores motorsport-inspired aesthetics, racing culture, cinematic visuals, and future-focused creative direction. Built from authentic passion and engineering mentality, this division pushes emotional branding into high-performance territory.
         </p>
 
-        <a href="#performance-detail" class="micro-link">
-          Explore Performance →
-        </a>
-
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- PROJECTS -->
 
-<!-- DIVISION EXPLANATION AREA -->
+  <section id="projects">
 
-<section>
-
-  <div class="container">
-
-    <!-- IDENTITY DETAIL -->
-
-    <div
-      id="identity-detail"
-      style="
-      padding-bottom:120px;
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      margin-bottom:120px;"
-    >
+    <div class="container">
 
       <div class="section-label">
-        xColor Identity
+        Featured Projects
       </div>
 
       <h2>
-        BUILDING FUTURE-FOCUSED <span>BRAND SYSTEMS.</span>
+        TRANSFORMING IDEAS INTO REAL-WORLD <span>EXPERIENCES.</span>
       </h2>
 
-      <p class="section-text">
-        xColor Identity creates emotionally intelligent visual systems for startups, founders, and modern businesses. We combine cinematic storytelling, AI-assisted ideation, typography systems, and scalable branding architecture to help brands become distinctive and memorable.
-      </p>
+      <div class="projects-grid">
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?q=80&w=1200&auto=format&fit=crop"
+            alt="Fleet Branding"
+          />
+
+          <div class="project-overlay">
+
+            <h4>
+              Prime Services
+            </h4>
+
+            <p>
+              Fleet Branding System
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
+            alt="Performance Culture"
+          />
+
+          <div class="project-overlay">
+
+            <h4>
+              Apex Racing
+            </h4>
+
+            <p>
+              Performance Visual Direction
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
-    <!-- MOTION DETAIL -->
+  </section>
 
-    <div
-      id="motion-detail"
-      style="
-      padding-bottom:120px;
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      margin-bottom:120px;"
-    >
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="container">
 
       <div class="section-label">
-        xColor Motion
+        Process
       </div>
 
       <h2>
-        REAL-WORLD BRANDING THROUGH <span>MOTION AND SCALE.</span>
+        STRATEGIC THINKING. PRECISION <span>EXECUTION.</span>
       </h2>
 
-      <p class="section-text">
-        xColor Motion specializes in fleet branding, signage systems, environmental graphics, and visual deployment. From pickup trucks to large commercial fleets, we transform physical spaces into cohesive brand experiences built for visibility and impact.
-      </p>
+      <div class="process-grid">
+
+        <div class="step">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h5>
+            Discover
+          </h5>
+
+          <p>
+            We define vision, positioning, audience, and emotional direction.
+          </p>
+
+        </div>
+
+        <div class="step">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h5>
+            Design
+          </h5>
+
+          <p>
+            AI-assisted exploration guided by cinematic aesthetics and real-world functionality.
+          </p>
+
+        </div>
+
+        <div class="step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h5>
+            Develop
+          </h5>
+
+          <p>
+            We build scalable systems for digital identity and physical deployment.
+          </p>
+
+        </div>
+
+        <div class="step">
+
+          <div class="step-number">
+            04
+          </div>
+
+          <h5>
+            Deploy
+          </h5>
+
+          <p>
+            Launch cohesive experiences across environments, platforms, and motion.
+          </p>
+
+        </div>
+
+      </div>
 
     </div>
 
-    <!-- PERFORMANCE DETAIL -->
+  </section>
 
-    <div id="performance-detail">
+  <!-- LAB -->
+
+  <section id="lab">
+
+    <div class="container">
 
       <div class="section-label">
-        xColor Performance
+        The Lab
       </div>
 
       <h2>
-        PERFORMANCE CULTURE MEETS <span>CINEMATIC STORYTELLING.</span>
+        EXPLORING FUTURE VISUAL <span>SYSTEMS.</span>
       </h2>
 
-      <p class="section-text">
-        xColor Performance explores motorsport-inspired aesthetics, racing culture, cinematic visuals, and future-focused creative direction. Built from authentic passion and engineering mentality, this division pushes emotional branding into high-performance territory.
-      </p>
+      <div class="lab-grid">
+
+        <div class="lab-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop"
+            alt="AI Systems"
+          />
+
+          <div class="lab-content">
+
+            <h4>
+              AI-Assisted Creative Systems
+            </h4>
+
+            <p>
+              Building scalable workflows powered by cinematic storytelling, automation, and visual intelligence.
+            </p>
+
+            <a href="#" class="micro-link">
+              Explore Concepts →
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="lab-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1400&auto=format&fit=crop"
+            alt="Performance Culture"
+          />
+
+          <div class="lab-content">
+
+            <h4>
+              Performance Culture Experiments
+            </h4>
+
+            <p>
+              Motorsport-inspired aesthetics, motion systems, racing visuals, and future-focused identity design.
+            </p>
+
+            <a href="#" class="micro-link">
+              Enter the Lab →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- FINAL CTA -->
+
+  <section>
+
+    <div class="container" style="text-align:center;">
+
+      <div class="section-label">
+        Build the Future
+      </div>
+
+      <h2 style="margin:auto auto 36px;">
+        LET’S CREATE SOMETHING <span>UNFORGETTABLE.</span>
+      </h2>
+
+      <a
+        href=""
+        class="btn btn-primary"
+        onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR-CALENDLY-LINK'});return false;"
+      >
+        Start a Project
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <div class="logo">
+
+            <div class="logo-box">
+              LOGO
+            </div>
+
+            <span>xColor</span>
+
+          </div>
+
+          <p>
+            AI-driven creative performance studio specializing in branding systems, fleet graphics, cinematic storytelling, signage, and future-focused visual execution.
+          </p>
+
+        </div>
+
+        <div class="footer-links">
+
+          <div>
+
+            <h6>
+              Navigation
+            </h6>
+
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#lab">Lab</a>
+
+          </div>
+
+          <div>
+
+            <h6>
+              Divisions
+            </h6>
+
+            <a href="#identity-detail">
+              xColor Identity
+            </a>
+
+            <a href="#motion-detail">
+              xColor Motion
+            </a>
+
+            <a href="#performance-detail">
+              xColor Performance
+            </a>
+
+          </div>
+
+          <div>
+
+            <h6>
+              Contact
+            </h6>
+
+            <a href="mailto:hello@thexcolor.com">
+              hello@thexcolor.com
+            </a>
+
+            <a href="#">
+              Saint Louis, Missouri
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 xColor. Built with precision.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- CALENDLY -->
+
+  <script
+    src="https://assets.calendly.com/assets/external/widget.js"
+    type="text/javascript"
+    async>
+  </script>
+
+</body>
+
+</html>
