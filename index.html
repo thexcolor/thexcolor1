@@ -31,9 +31,9 @@
     :root{
       --bg:#050505;
       --panel:#0b0b0b;
-      --text:#f5f5f5;
-      --muted:#8f8f8f;
-      --line:#171717;
+      --text:#f4f4f4;
+      --muted:#919191;
+      --line:#161616;
       --pink:#ff2d7a;
       --purple:#8b5cf6;
     }
@@ -61,17 +61,17 @@
     }
 
     .container{
-      width:min(1280px,88%);
+      width:min(1240px,90%);
       margin:auto;
     }
 
     section{
-      padding:220px 0;
+      padding:120px 0;
       border-top:1px solid var(--line);
       position:relative;
     }
 
-    /* NAVIGATION */
+    /* NAV */
 
     nav{
       position:fixed;
@@ -79,43 +79,39 @@
       left:0;
       width:100%;
       z-index:999;
-      background:rgba(5,5,5,0.7);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
+      background:rgba(5,5,5,0.68);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.04);
     }
 
     .nav-wrap{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:24px 0;
+      padding:20px 0;
     }
 
     .logo{
       display:flex;
       align-items:center;
-      gap:18px;
+      gap:16px;
     }
 
-    /* EMPTY LOGO BOX */
-
     .logo-box{
-      width:54px;
-      height:54px;
-      border:1px dashed rgba(255,255,255,0.25);
+      width:50px;
+      height:50px;
       border-radius:14px;
+      border:1px dashed rgba(255,255,255,0.18);
       display:flex;
       align-items:center;
       justify-content:center;
+      font-size:0.65rem;
       color:#666;
-      font-size:0.7rem;
-      letter-spacing:1px;
-      overflow:hidden;
       background:#0a0a0a;
     }
 
     .logo span{
-      font-size:2rem;
+      font-size:1.9rem;
       font-weight:300;
       letter-spacing:-1px;
     }
@@ -123,11 +119,11 @@
     .menu{
       display:flex;
       align-items:center;
-      gap:42px;
+      gap:38px;
     }
 
     .menu a{
-      color:#cfcfcf;
+      color:#c9c9c9;
       font-size:0.92rem;
       transition:0.3s;
     }
@@ -137,14 +133,15 @@
     }
 
     .btn{
-      padding:15px 28px;
-      border:1px solid rgba(255,255,255,0.15);
-      transition:0.35s;
+      padding:14px 24px;
+      border-radius:100px;
+      border:1px solid rgba(255,255,255,0.12);
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      font-size:0.95rem;
+      transition:0.35s;
+      font-size:0.92rem;
     }
 
     .btn:hover{
@@ -165,35 +162,57 @@
     /* HERO */
 
     .hero{
-      min-height:120vh;
+      min-height:100vh;
       display:flex;
       align-items:center;
-      overflow:hidden;
+      padding-top:120px;
       border:none;
+      position:relative;
+      overflow:hidden;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1.1fr;
-      gap:100px;
-      align-items:center;
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:-2;
+    }
+
+    .hero-bg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0.38;
+      filter:brightness(0.7);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.88)),
+      radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(255,45,122,0.16), transparent 28%);
+      z-index:-1;
+    }
+
+    .hero-content{
+      max-width:860px;
     }
 
     .eyebrow{
       color:var(--pink);
       text-transform:uppercase;
       letter-spacing:2px;
-      font-size:0.8rem;
-      margin-bottom:34px;
+      font-size:0.78rem;
+      margin-bottom:28px;
     }
 
     h1{
-      font-size:6rem;
-      line-height:0.9;
-      letter-spacing:-5px;
+      font-size:5.4rem;
+      line-height:0.92;
+      letter-spacing:-4px;
       font-weight:300;
-      margin-bottom:50px;
-      max-width:780px;
+      margin-bottom:36px;
     }
 
     h1 span{
@@ -201,47 +220,36 @@
     }
 
     .hero p{
-      color:var(--muted);
-      font-size:1.15rem;
+      max-width:680px;
+      color:#d0d0d0;
+      font-size:1.08rem;
       line-height:1.9;
-      max-width:560px;
-      margin-bottom:70px;
+      margin-bottom:46px;
     }
 
     .hero-buttons{
       display:flex;
       flex-wrap:wrap;
-      gap:20px;
+      gap:18px;
     }
 
-    .hero-image{
-      position:relative;
-    }
-
-    .hero-image img{
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,0.08);
-      min-height:760px;
-      object-fit:cover;
-    }
-
-    /* TYPOGRAPHY */
+    /* GLOBAL TYPO */
 
     .section-label{
       color:var(--pink);
       text-transform:uppercase;
       letter-spacing:2px;
-      font-size:0.8rem;
-      margin-bottom:24px;
+      font-size:0.78rem;
+      margin-bottom:18px;
     }
 
     h2{
-      font-size:4rem;
+      font-size:3.2rem;
       line-height:1;
-      letter-spacing:-3px;
+      letter-spacing:-2px;
       font-weight:300;
-      margin-bottom:90px;
-      max-width:900px;
+      margin-bottom:28px;
+      max-width:860px;
     }
 
     h2 span{
@@ -250,19 +258,29 @@
 
     .section-text{
       color:var(--muted);
-      max-width:760px;
       line-height:1.9;
-      font-size:1.08rem;
+      max-width:720px;
+      font-size:1rem;
     }
 
-    /* PHILOSOPHY */
+    /* FEATURE BLOCK */
 
-    .philosophy{
-      text-align:center;
+    .feature-block{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
     }
 
-    .philosophy p{
-      margin:auto;
+    .feature-image{
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-image img{
+      height:620px;
+      object-fit:cover;
     }
 
     /* SERVICES */
@@ -270,51 +288,51 @@
     .services-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:40px;
+      gap:28px;
+      margin-top:70px;
     }
 
     .card{
-      background:linear-gradient(180deg,#0a0a0a,#070707);
-      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg,#0b0b0b,#080808);
+      border:1px solid rgba(255,255,255,0.05);
       border-radius:28px;
-      padding:50px;
+      padding:40px;
       transition:0.4s;
     }
 
     .card:hover{
-      transform:translateY(-10px);
-      border-color:rgba(255,45,122,0.35);
+      transform:translateY(-8px);
+      border-color:rgba(255,45,122,0.25);
     }
 
     .icon{
-      width:78px;
-      height:78px;
+      width:72px;
+      height:72px;
       border-radius:20px;
       background:linear-gradient(135deg,var(--purple),var(--pink));
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:1.8rem;
-      margin-bottom:34px;
+      font-size:1.6rem;
+      margin-bottom:28px;
     }
 
     .card h3{
-      font-size:1.7rem;
-      margin-bottom:20px;
+      font-size:1.5rem;
+      margin-bottom:18px;
       font-weight:500;
     }
 
     .card p{
       color:var(--muted);
-      line-height:1.9;
-      margin-bottom:34px;
+      line-height:1.85;
+      margin-bottom:26px;
     }
 
     .micro-link{
-      color:white;
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       transition:0.3s;
     }
 
@@ -326,11 +344,10 @@
 
     .cta-panel{
       text-align:center;
-      padding:220px 0;
     }
 
     .cta-panel h2{
-      margin:auto auto 60px;
+      margin:auto auto 36px;
     }
 
     /* PROJECTS */
@@ -338,18 +355,19 @@
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:30px;
+      gap:24px;
+      margin-top:70px;
     }
 
     .project{
       position:relative;
       overflow:hidden;
       border-radius:26px;
-      border:1px solid rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.05);
     }
 
     .project img{
-      min-height:620px;
+      height:560px;
       object-fit:cover;
       transition:0.6s;
     }
@@ -361,16 +379,16 @@
     .project-overlay{
       position:absolute;
       inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.88),transparent);
+      background:linear-gradient(to top, rgba(0,0,0,0.88), transparent);
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      padding:40px;
+      padding:32px;
     }
 
     .project-overlay h4{
-      font-size:1.6rem;
-      margin-bottom:12px;
+      font-size:1.5rem;
+      margin-bottom:10px;
       font-weight:500;
     }
 
@@ -383,30 +401,31 @@
     .process-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      gap:40px;
+      gap:30px;
+      margin-top:70px;
     }
 
     .step{
-      border-top:1px solid rgba(255,255,255,0.1);
-      padding-top:34px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:24px;
     }
 
     .step-number{
-      font-size:4.5rem;
-      font-weight:200;
+      font-size:3.4rem;
       color:var(--pink);
-      margin-bottom:24px;
+      font-weight:200;
+      margin-bottom:18px;
     }
 
     .step h5{
-      font-size:1.25rem;
-      margin-bottom:18px;
+      font-size:1.15rem;
+      margin-bottom:14px;
       font-weight:500;
     }
 
     .step p{
       color:var(--muted);
-      line-height:1.9;
+      line-height:1.85;
     }
 
     /* LAB */
@@ -414,48 +433,49 @@
     .lab-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:50px;
+      gap:30px;
+      margin-top:70px;
     }
 
     .lab-card{
-      background:#0a0a0a;
+      background:#090909;
       border-radius:28px;
-      border:1px solid rgba(255,255,255,0.06);
       overflow:hidden;
+      border:1px solid rgba(255,255,255,0.05);
     }
 
     .lab-card img{
-      height:420px;
+      height:380px;
       object-fit:cover;
     }
 
     .lab-content{
-      padding:40px;
+      padding:34px;
     }
 
     .lab-content h4{
-      font-size:1.5rem;
-      margin-bottom:18px;
+      font-size:1.45rem;
+      margin-bottom:16px;
       font-weight:500;
     }
 
     .lab-content p{
       color:var(--muted);
       line-height:1.9;
-      margin-bottom:26px;
+      margin-bottom:24px;
     }
 
     /* FOOTER */
 
     footer{
-      padding:140px 0 80px;
+      padding:100px 0 60px;
       border-top:1px solid var(--line);
     }
 
     .footer-grid{
       display:flex;
       justify-content:space-between;
-      gap:80px;
+      gap:60px;
       flex-wrap:wrap;
     }
 
@@ -466,26 +486,26 @@
     .footer-brand p{
       color:var(--muted);
       line-height:1.9;
-      margin-top:26px;
+      margin-top:24px;
     }
 
     .footer-links{
       display:flex;
-      gap:80px;
+      gap:70px;
       flex-wrap:wrap;
     }
 
     .footer-links h6{
-      font-size:0.85rem;
       text-transform:uppercase;
       letter-spacing:2px;
-      margin-bottom:26px;
+      font-size:0.8rem;
+      margin-bottom:22px;
     }
 
     .footer-links a{
       display:block;
-      margin-bottom:16px;
       color:var(--muted);
+      margin-bottom:14px;
       transition:0.3s;
     }
 
@@ -494,7 +514,7 @@
     }
 
     .copyright{
-      margin-top:100px;
+      margin-top:70px;
       color:#666;
       font-size:0.85rem;
     }
@@ -503,7 +523,7 @@
 
     @media(max-width:1100px){
 
-      .hero-grid,
+      .feature-block,
       .services-grid,
       .projects-grid,
       .process-grid,
@@ -512,11 +532,11 @@
       }
 
       h1{
-        font-size:4.2rem;
+        font-size:3.8rem;
       }
 
       h2{
-        font-size:3rem;
+        font-size:2.5rem;
       }
 
       .menu{
@@ -524,20 +544,22 @@
       }
 
       section{
-        padding:160px 0;
+        padding:90px 0;
       }
 
       .hero{
-        padding-top:140px;
+        min-height:auto;
+        padding:160px 0 100px;
       }
     }
 
   </style>
+
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
 
   <nav>
 
@@ -545,7 +567,8 @@
 
       <div class="logo">
 
-        <!-- EMPTY LOGO POSITION -->
+        <!-- LOGO PLACEHOLDER -->
+
         <div class="logo-box">
           LOGO
         </div>
@@ -576,21 +599,31 @@
 
   <section class="hero">
 
-    <div class="container hero-grid">
+    <div class="hero-bg">
 
-      <div>
+      <img
+        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop"
+        alt="Hero Background"
+      />
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+
+      <div class="hero-content">
 
         <div class="eyebrow">
           AI-Driven Creative Performance Studio
         </div>
 
         <h1>
-          BUILD THE FUTURE. <br>
-          BRAND IT WITH <span>PRECISION.</span>
+          EXPLORING FUTURE <span>VISUAL SYSTEMS.</span>
         </h1>
 
         <p>
-          xColor helps modern brands build emotionally powerful identities through AI-assisted design, cinematic storytelling, fleet graphics, signage, and real-world visual execution.
+          xColor blends branding intelligence, cinematic storytelling, AI-assisted creativity, fleet branding, signage systems, and real-world visual execution into premium future-focused experiences.
         </p>
 
         <div class="hero-buttons">
@@ -611,36 +644,40 @@
 
       </div>
 
-      <div class="hero-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1800&auto=format&fit=crop"
-          alt="Luxury Performance Vehicle"
-        />
-
-      </div>
-
     </div>
 
   </section>
 
-  <!-- PHILOSOPHY -->
+  <!-- FEATURE -->
 
-  <section class="philosophy">
+  <section>
 
-    <div class="container">
+    <div class="container feature-block">
 
-      <div class="section-label">
-        Philosophy
+      <div>
+
+        <div class="section-label">
+          The Studio
+        </div>
+
+        <h2>
+          BUILDING BRANDS THROUGH <span>MOTION, IDENTITY, AND SYSTEMS.</span>
+        </h2>
+
+        <p class="section-text">
+          xColor operates at the intersection of branding, physical implementation, AI-assisted creativity, and cinematic storytelling. We create scalable visual ecosystems designed for modern founders, premium businesses, and future-focused culture.
+        </p>
+
       </div>
 
-      <h2>
-        DESIGNING EMOTION THROUGH <span>IDENTITY, MOTION, AND SYSTEMS.</span>
-      </h2>
+      <div class="feature-image">
 
-      <p class="section-text">
-        xColor blends branding intelligence, cinematic storytelling, AI-assisted creativity, and physical execution into premium visual experiences built for modern brands and future-focused founders.
-      </p>
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop"
+          alt="Creative Studio"
+        />
+
+      </div>
 
     </div>
 
@@ -657,7 +694,7 @@
       </div>
 
       <h2>
-        A COMPLETE CREATIVE PERFORMANCE <span>ECOSYSTEM.</span>
+        A MODERN CREATIVE PERFORMANCE <span>ECOSYSTEM.</span>
       </h2>
 
       <div class="services-grid">
@@ -669,7 +706,7 @@
           <h3>xColor Identity</h3>
 
           <p>
-            Startup branding systems, founder identity, AI-assisted creative direction, and scalable visual frameworks.
+            Startup branding systems, founder identity, visual direction, and scalable brand architecture.
           </p>
 
           <a href="#" class="micro-link">
@@ -685,7 +722,7 @@
           <h3>xColor Motion</h3>
 
           <p>
-            Fleet branding, signage systems, environmental graphics, installation workflows, and visual deployment.
+            Fleet branding, signage systems, environmental graphics, and physical visual implementation.
           </p>
 
           <a href="#" class="micro-link">
@@ -701,7 +738,7 @@
           <h3>xColor Performance</h3>
 
           <p>
-            Motorsport-inspired visuals, racing culture concepts, cinematic content, and performance storytelling.
+            Motorsport-inspired aesthetics, cinematic content systems, and performance culture storytelling.
           </p>
 
           <a href="#" class="micro-link">
@@ -723,11 +760,11 @@
     <div class="container">
 
       <div class="section-label">
-        Start Your Vision
+        Build Your Vision
       </div>
 
       <h2>
-        BUILD A BRAND PEOPLE <span>REMEMBER.</span>
+        CREATE SOMETHING <span>DISTINCTIVE.</span>
       </h2>
 
       <a href="#contact" class="btn btn-primary">
@@ -749,7 +786,7 @@
       </div>
 
       <h2>
-        TRANSFORMING IDEAS INTO REAL-WORLD <span>IMPACT.</span>
+        TRANSFORMING IDEAS INTO REAL-WORLD <span>EXPERIENCES.</span>
       </h2>
 
       <div class="projects-grid">
@@ -763,7 +800,9 @@
 
           <div class="project-overlay">
 
-            <h4>Prime Services</h4>
+            <h4>
+              Prime Services
+            </h4>
 
             <p>
               Fleet Branding System
@@ -777,12 +816,14 @@
 
           <img
             src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop"
-            alt="Brand Identity"
+            alt="Identity System"
           />
 
           <div class="project-overlay">
 
-            <h4>Nexa Capital</h4>
+            <h4>
+              Nexa Capital
+            </h4>
 
             <p>
               Founder Identity System
@@ -796,12 +837,14 @@
 
           <img
             src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
-            alt="Performance Visuals"
+            alt="Performance Culture"
           />
 
           <div class="project-overlay">
 
-            <h4>Apex Racing</h4>
+            <h4>
+              Apex Racing
+            </h4>
 
             <p>
               Performance Visual Direction
@@ -844,7 +887,7 @@
           </h5>
 
           <p>
-            We define positioning, audience, goals, and emotional direction.
+            We define vision, positioning, audience, and emotional direction.
           </p>
 
         </div>
@@ -860,7 +903,7 @@
           </h5>
 
           <p>
-            AI-assisted exploration meets human taste and cinematic visual systems.
+            AI-assisted exploration guided by cinematic aesthetics and real-world functionality.
           </p>
 
         </div>
@@ -876,7 +919,7 @@
           </h5>
 
           <p>
-            We build scalable branding systems, content structures, and deployment assets.
+            We build scalable systems for digital identity and physical deployment.
           </p>
 
         </div>
@@ -892,7 +935,7 @@
           </h5>
 
           <p>
-            Digital identity and physical execution merge into one cohesive experience.
+            Launch cohesive experiences across environments, platforms, and motion.
           </p>
 
         </div>
@@ -922,18 +965,18 @@
         <div class="lab-card">
 
           <img
-            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
-            alt="AI Creative Systems"
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop"
+            alt="AI Systems"
           />
 
           <div class="lab-content">
 
             <h4>
-              AI-Assisted Brand Systems
+              AI-Assisted Creative Systems
             </h4>
 
             <p>
-              Exploring scalable creative workflows powered by AI-assisted ideation and cinematic storytelling systems.
+              Building scalable workflows powered by cinematic storytelling, automation, and visual intelligence.
             </p>
 
             <a href="#" class="micro-link">
@@ -947,7 +990,7 @@
         <div class="lab-card">
 
           <img
-            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1200&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1400&auto=format&fit=crop"
             alt="Performance Culture"
           />
 
@@ -958,7 +1001,7 @@
             </h4>
 
             <p>
-              Motorsport-inspired aesthetics, motion systems, cinematic visual direction, and future performance identity.
+              Motorsport-inspired aesthetics, motion systems, racing visuals, and future-focused identity design.
             </p>
 
             <a href="#" class="micro-link">
@@ -1009,7 +1052,6 @@
 
           <div class="logo">
 
-            <!-- EMPTY LOGO POSITION -->
             <div class="logo-box">
               LOGO
             </div>
@@ -1019,7 +1061,7 @@
           </div>
 
           <p>
-            AI-driven creative performance studio specializing in startup identity systems, fleet branding, signage, cinematic storytelling, and real-world visual execution.
+            AI-driven creative performance studio specializing in branding systems, fleet graphics, cinematic storytelling, signage, and future-focused visual execution.
           </p>
 
         </div>
@@ -1088,4 +1130,5 @@
   </footer>
 
 </body>
+
 </html>
