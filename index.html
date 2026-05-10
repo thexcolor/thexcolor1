@@ -235,7 +235,7 @@
       gap:18px;
     }
 
-    /* GLOBAL TYPO */
+    /* TYPO */
 
     .section-label{
       color:var(--pink);
@@ -263,26 +263,6 @@
       line-height:1.9;
       max-width:720px;
       font-size:1rem;
-    }
-
-    /* FEATURE BLOCK */
-
-    .feature-block{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:center;
-    }
-
-    .feature-image{
-      overflow:hidden;
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,0.05);
-    }
-
-    .feature-image img{
-      height:620px;
-      object-fit:cover;
     }
 
     /* SERVICES */
@@ -340,6 +320,29 @@
 
     .micro-link:hover{
       color:var(--pink);
+    }
+
+    /* DIVISION DETAILS */
+
+    .division-block{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+      padding-bottom:120px;
+      margin-bottom:120px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .division-image{
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .division-image img{
+      height:520px;
+      object-fit:cover;
     }
 
     /* PROJECTS */
@@ -515,8 +518,8 @@
 
     @media(max-width:1100px){
 
-      .feature-block,
       .services-grid,
+      .division-block,
       .projects-grid,
       .process-grid,
       .lab-grid{
@@ -575,14 +578,6 @@
         <a href="#lab">Lab</a>
         <a href="#contact">Contact</a>
 
-        <a
-          href=""
-          class="btn"
-          onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR-CALENDLY-LINK'});return false;"
-        >
-          Start a Project
-        </a>
-
       </div>
 
     </div>
@@ -596,7 +591,7 @@
     <div class="hero-bg">
 
       <img
-        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop"
+        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2200&auto=format&fit=crop"
         alt="Hero Background"
       />
 
@@ -639,41 +634,6 @@
           </a>
 
         </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FEATURE -->
-
-  <section>
-
-    <div class="container feature-block">
-
-      <div>
-
-        <div class="section-label">
-          The Studio
-        </div>
-
-        <h2>
-          BUILDING BRANDS THROUGH <span>MOTION, IDENTITY, AND SYSTEMS.</span>
-        </h2>
-
-        <p class="section-text">
-          xColor operates at the intersection of branding, physical implementation, AI-assisted creativity, and cinematic storytelling. We create scalable visual ecosystems designed for modern founders, premium businesses, and future-focused culture.
-        </p>
-
-      </div>
-
-      <div class="feature-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop"
-          alt="Fleet Wrap Pickup Truck"
-        />
 
       </div>
 
@@ -765,67 +725,94 @@
 
       <!-- IDENTITY -->
 
-      <div
-        id="identity-detail"
-        style="
-        padding-bottom:120px;
-        border-bottom:1px solid rgba(255,255,255,0.06);
-        margin-bottom:120px;"
-      >
+      <div class="division-block" id="identity-detail">
 
-        <div class="section-label">
-          xColor Identity
+        <div>
+
+          <div class="section-label">
+            xColor Identity
+          </div>
+
+          <h2>
+            BUILDING FUTURE-FOCUSED <span>BRAND SYSTEMS.</span>
+          </h2>
+
+          <p class="section-text">
+            xColor Identity creates emotionally intelligent visual systems for startups, founders, and modern businesses. We combine cinematic storytelling, AI-assisted ideation, typography systems, and scalable branding architecture to help brands become distinctive and memorable.
+          </p>
+
         </div>
 
-        <h2>
-          BUILDING FUTURE-FOCUSED <span>BRAND SYSTEMS.</span>
-        </h2>
+        <div class="division-image">
 
-        <p class="section-text">
-          xColor Identity creates emotionally intelligent visual systems for startups, founders, and modern businesses. We combine cinematic storytelling, AI-assisted ideation, typography systems, and scalable branding architecture to help brands become distinctive and memorable.
-        </p>
+          <img
+            src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1400&auto=format&fit=crop"
+            alt="Brand Identity"
+          />
+
+        </div>
 
       </div>
 
       <!-- MOTION -->
 
-      <div
-        id="motion-detail"
-        style="
-        padding-bottom:120px;
-        border-bottom:1px solid rgba(255,255,255,0.06);
-        margin-bottom:120px;"
-      >
+      <div class="division-block" id="motion-detail">
 
-        <div class="section-label">
-          xColor Motion
+        <div>
+
+          <div class="section-label">
+            xColor Motion
+          </div>
+
+          <h2>
+            REAL-WORLD BRANDING THROUGH <span>MOTION AND SCALE.</span>
+          </h2>
+
+          <p class="section-text">
+            xColor Motion specializes in fleet branding, signage systems, environmental graphics, and visual deployment. From pickup trucks to large commercial fleets, we transform physical spaces into cohesive brand experiences built for visibility and impact.
+          </p>
+
         </div>
 
-        <h2>
-          REAL-WORLD BRANDING THROUGH <span>MOTION AND SCALE.</span>
-        </h2>
+        <div class="division-image">
 
-        <p class="section-text">
-          xColor Motion specializes in fleet branding, signage systems, environmental graphics, and visual deployment. From pickup trucks to large commercial fleets, we transform physical spaces into cohesive brand experiences built for visibility and impact.
-        </p>
+          <img
+            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop"
+            alt="Fleet Wrap Pickup Truck"
+          />
+
+        </div>
 
       </div>
 
       <!-- PERFORMANCE -->
 
-      <div id="performance-detail">
+      <div class="division-block" id="performance-detail" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
 
-        <div class="section-label">
-          xColor Performance
+        <div>
+
+          <div class="section-label">
+            xColor Performance
+          </div>
+
+          <h2>
+            PERFORMANCE CULTURE MEETS <span>CINEMATIC STORYTELLING.</span>
+          </h2>
+
+          <p class="section-text">
+            xColor Performance explores motorsport-inspired aesthetics, racing culture, cinematic visuals, and future-focused creative direction. Built from authentic passion and engineering mentality, this division pushes emotional branding into high-performance territory.
+          </p>
+
         </div>
 
-        <h2>
-          PERFORMANCE CULTURE MEETS <span>CINEMATIC STORYTELLING.</span>
-        </h2>
+        <div class="division-image">
 
-        <p class="section-text">
-          xColor Performance explores motorsport-inspired aesthetics, racing culture, cinematic visuals, and future-focused creative direction. Built from authentic passion and engineering mentality, this division pushes emotional branding into high-performance territory.
-        </p>
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1400&auto=format&fit=crop"
+            alt="Performance Culture"
+          />
+
+        </div>
 
       </div>
 
@@ -1016,10 +1003,6 @@
               Building scalable workflows powered by cinematic storytelling, automation, and visual intelligence.
             </p>
 
-            <a href="#" class="micro-link">
-              Explore Concepts →
-            </a>
-
           </div>
 
         </div>
@@ -1040,10 +1023,6 @@
             <p>
               Motorsport-inspired aesthetics, motion systems, racing visuals, and future-focused identity design.
             </p>
-
-            <a href="#" class="micro-link">
-              Enter the Lab →
-            </a>
 
           </div>
 
