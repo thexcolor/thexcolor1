@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +21,7 @@
   />
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -29,9 +31,9 @@
     :root{
       --bg:#050505;
       --panel:#0b0b0b;
-      --text:#f2f2f2;
-      --muted:#8b8b8b;
-      --line:#1c1c1c;
+      --text:#f5f5f5;
+      --muted:#8f8f8f;
+      --line:#171717;
       --pink:#ff2d7a;
       --purple:#8b5cf6;
     }
@@ -45,6 +47,7 @@
       color:var(--text);
       font-family:'Inter',sans-serif;
       overflow-x:hidden;
+      line-height:1.6;
     }
 
     a{
@@ -52,12 +55,23 @@
       color:inherit;
     }
 
+    img{
+      width:100%;
+      display:block;
+    }
+
     .container{
-      width:min(1400px,92%);
+      width:min(1280px,88%);
       margin:auto;
     }
 
-    /* NAV */
+    section{
+      padding:220px 0;
+      border-top:1px solid var(--line);
+      position:relative;
+    }
+
+    /* NAVIGATION */
 
     nav{
       position:fixed;
@@ -66,7 +80,7 @@
       width:100%;
       z-index:999;
       background:rgba(5,5,5,0.7);
-      backdrop-filter:blur(12px);
+      backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
 
@@ -74,17 +88,30 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:22px 0;
+      padding:24px 0;
     }
 
     .logo{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:18px;
     }
 
-    .logo img{
-      width:52px;
+    /* EMPTY LOGO BOX */
+
+    .logo-box{
+      width:54px;
+      height:54px;
+      border:1px dashed rgba(255,255,255,0.25);
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      font-size:0.7rem;
+      letter-spacing:1px;
+      overflow:hidden;
+      background:#0a0a0a;
     }
 
     .logo span{
@@ -95,13 +122,13 @@
 
     .menu{
       display:flex;
-      gap:42px;
       align-items:center;
+      gap:42px;
     }
 
     .menu a{
       color:#cfcfcf;
-      font-size:0.9rem;
+      font-size:0.92rem;
       transition:0.3s;
     }
 
@@ -110,9 +137,14 @@
     }
 
     .btn{
-      border:1px solid var(--pink);
-      padding:14px 24px;
-      transition:0.3s;
+      padding:15px 28px;
+      border:1px solid rgba(255,255,255,0.15);
+      transition:0.35s;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      font-size:0.95rem;
     }
 
     .btn:hover{
@@ -120,37 +152,48 @@
       border-color:transparent;
     }
 
+    .btn-primary{
+      background:white;
+      color:black;
+      border:none;
+    }
+
+    .btn-primary:hover{
+      color:white;
+    }
+
     /* HERO */
 
     .hero{
-      min-height:100vh;
+      min-height:120vh;
       display:flex;
       align-items:center;
-      position:relative;
       overflow:hidden;
+      border:none;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1fr 1.2fr;
-      gap:80px;
+      grid-template-columns:1fr 1.1fr;
+      gap:100px;
       align-items:center;
     }
 
     .eyebrow{
       color:var(--pink);
-      font-size:0.8rem;
-      letter-spacing:2px;
-      margin-bottom:30px;
       text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:0.8rem;
+      margin-bottom:34px;
     }
 
     h1{
-      font-size:5rem;
-      line-height:0.95;
+      font-size:6rem;
+      line-height:0.9;
+      letter-spacing:-5px;
       font-weight:300;
-      letter-spacing:-4px;
-      margin-bottom:30px;
+      margin-bottom:50px;
+      max-width:780px;
     }
 
     h1 span{
@@ -159,20 +202,16 @@
 
     .hero p{
       color:var(--muted);
-      line-height:1.8;
-      font-size:1.1rem;
-      max-width:520px;
-      margin-bottom:40px;
+      font-size:1.15rem;
+      line-height:1.9;
+      max-width:560px;
+      margin-bottom:70px;
     }
 
     .hero-buttons{
       display:flex;
+      flex-wrap:wrap;
       gap:20px;
-    }
-
-    .secondary-btn{
-      border:1px solid #333;
-      padding:14px 24px;
     }
 
     .hero-image{
@@ -180,37 +219,50 @@
     }
 
     .hero-image img{
-      width:100%;
-      border-radius:22px;
-      opacity:0.96;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.08);
+      min-height:760px;
+      object-fit:cover;
     }
 
-    /* SECTIONS */
-
-    section{
-      padding:140px 0;
-      border-top:1px solid var(--line);
-    }
+    /* TYPOGRAPHY */
 
     .section-label{
       color:var(--pink);
       text-transform:uppercase;
-      font-size:0.8rem;
       letter-spacing:2px;
-      margin-bottom:18px;
+      font-size:0.8rem;
+      margin-bottom:24px;
     }
 
     h2{
-      font-size:3rem;
+      font-size:4rem;
+      line-height:1;
+      letter-spacing:-3px;
       font-weight:300;
-      line-height:1.05;
-      letter-spacing:-2px;
-      margin-bottom:70px;
-      max-width:700px;
+      margin-bottom:90px;
+      max-width:900px;
     }
 
     h2 span{
       color:var(--pink);
+    }
+
+    .section-text{
+      color:var(--muted);
+      max-width:760px;
+      line-height:1.9;
+      font-size:1.08rem;
+    }
+
+    /* PHILOSOPHY */
+
+    .philosophy{
+      text-align:center;
+    }
+
+    .philosophy p{
+      margin:auto;
     }
 
     /* SERVICES */
@@ -222,38 +274,63 @@
     }
 
     .card{
-      background:linear-gradient(180deg,#0b0b0b,#070707);
+      background:linear-gradient(180deg,#0a0a0a,#070707);
       border:1px solid rgba(255,255,255,0.06);
-      padding:42px;
-      border-radius:22px;
+      border-radius:28px;
+      padding:50px;
       transition:0.4s;
     }
 
     .card:hover{
       transform:translateY(-10px);
-      border-color:rgba(255,45,122,0.4);
-    }
-
-    .card h3{
-      font-size:1.5rem;
-      margin:28px 0 16px;
-      font-weight:500;
-    }
-
-    .card p{
-      color:var(--muted);
-      line-height:1.8;
+      border-color:rgba(255,45,122,0.35);
     }
 
     .icon{
-      width:72px;
-      height:72px;
-      border-radius:18px;
+      width:78px;
+      height:78px;
+      border-radius:20px;
       background:linear-gradient(135deg,var(--purple),var(--pink));
       display:flex;
       align-items:center;
       justify-content:center;
       font-size:1.8rem;
+      margin-bottom:34px;
+    }
+
+    .card h3{
+      font-size:1.7rem;
+      margin-bottom:20px;
+      font-weight:500;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:34px;
+    }
+
+    .micro-link{
+      color:white;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:0.3s;
+    }
+
+    .micro-link:hover{
+      color:var(--pink);
+    }
+
+    /* CTA PANEL */
+
+    .cta-panel{
+      text-align:center;
+      padding:220px 0;
+    }
+
+    .cta-panel h2{
+      margin:auto auto 60px;
     }
 
     /* PROJECTS */
@@ -261,21 +338,20 @@
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:28px;
+      gap:30px;
     }
 
     .project{
       position:relative;
       overflow:hidden;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,0.05);
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,0.06);
     }
 
     .project img{
-      width:100%;
-      height:100%;
+      min-height:620px;
       object-fit:cover;
-      transition:0.5s;
+      transition:0.6s;
     }
 
     .project:hover img{
@@ -285,21 +361,21 @@
     .project-overlay{
       position:absolute;
       inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);
+      background:linear-gradient(to top,rgba(0,0,0,0.88),transparent);
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      padding:30px;
+      padding:40px;
     }
 
     .project-overlay h4{
-      font-size:1.5rem;
-      margin-bottom:10px;
+      font-size:1.6rem;
+      margin-bottom:12px;
       font-weight:500;
     }
 
     .project-overlay p{
-      color:#c8c8c8;
+      color:#d0d0d0;
     }
 
     /* PROCESS */
@@ -307,55 +383,90 @@
     .process-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      gap:30px;
+      gap:40px;
     }
 
     .step{
       border-top:1px solid rgba(255,255,255,0.1);
-      padding-top:30px;
+      padding-top:34px;
     }
 
     .step-number{
-      font-size:4rem;
+      font-size:4.5rem;
       font-weight:200;
       color:var(--pink);
-      margin-bottom:20px;
+      margin-bottom:24px;
     }
 
     .step h5{
-      font-size:1.2rem;
-      margin-bottom:16px;
+      font-size:1.25rem;
+      margin-bottom:18px;
       font-weight:500;
     }
 
     .step p{
       color:var(--muted);
-      line-height:1.7;
+      line-height:1.9;
+    }
+
+    /* LAB */
+
+    .lab-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+    }
+
+    .lab-card{
+      background:#0a0a0a;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.06);
+      overflow:hidden;
+    }
+
+    .lab-card img{
+      height:420px;
+      object-fit:cover;
+    }
+
+    .lab-content{
+      padding:40px;
+    }
+
+    .lab-content h4{
+      font-size:1.5rem;
+      margin-bottom:18px;
+      font-weight:500;
+    }
+
+    .lab-content p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:26px;
     }
 
     /* FOOTER */
 
     footer{
-      padding:80px 0;
+      padding:140px 0 80px;
       border-top:1px solid var(--line);
     }
 
     .footer-grid{
       display:flex;
       justify-content:space-between;
-      align-items:flex-start;
-      gap:40px;
+      gap:80px;
       flex-wrap:wrap;
     }
 
     .footer-brand{
-      max-width:420px;
+      max-width:460px;
     }
 
     .footer-brand p{
-      margin-top:20px;
       color:var(--muted);
-      line-height:1.8;
+      line-height:1.9;
+      margin-top:26px;
     }
 
     .footer-links{
@@ -365,17 +476,16 @@
     }
 
     .footer-links h6{
-      margin-bottom:20px;
-      font-size:0.9rem;
-      letter-spacing:1px;
+      font-size:0.85rem;
       text-transform:uppercase;
-      color:white;
+      letter-spacing:2px;
+      margin-bottom:26px;
     }
 
     .footer-links a{
       display:block;
+      margin-bottom:16px;
       color:var(--muted);
-      margin-bottom:12px;
       transition:0.3s;
     }
 
@@ -384,7 +494,7 @@
     }
 
     .copyright{
-      margin-top:60px;
+      margin-top:100px;
       color:#666;
       font-size:0.85rem;
     }
@@ -396,20 +506,25 @@
       .hero-grid,
       .services-grid,
       .projects-grid,
-      .process-grid{
+      .process-grid,
+      .lab-grid{
         grid-template-columns:1fr;
       }
 
       h1{
-        font-size:3.8rem;
+        font-size:4.2rem;
       }
 
       h2{
-        font-size:2.4rem;
+        font-size:3rem;
       }
 
       .menu{
         display:none;
+      }
+
+      section{
+        padding:160px 0;
       }
 
       .hero{
@@ -422,27 +537,39 @@
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
 
   <nav>
+
     <div class="container nav-wrap">
 
       <div class="logo">
-        <img src="https://i.imgur.com/TnYV9bO.png" alt="xColor Logo">
+
+        <!-- EMPTY LOGO POSITION -->
+        <div class="logo-box">
+          LOGO
+        </div>
+
         <span>xColor</span>
+
       </div>
 
       <div class="menu">
+
         <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
-        <a href="#process">Process</a>
+        <a href="#lab">Lab</a>
         <a href="#contact">Contact</a>
 
-        <a href="#" class="btn">Start a Project</a>
+        <a href="#" class="btn">
+          Start a Project
+        </a>
+
       </div>
 
     </div>
+
   </nav>
 
   <!-- HERO -->
@@ -458,8 +585,8 @@
         </div>
 
         <h1>
-          BRANDS THAT MOVE. <br>
-          IDENTITIES THAT <span>STAY.</span>
+          BUILD THE FUTURE. <br>
+          BRAND IT WITH <span>PRECISION.</span>
         </h1>
 
         <p>
@@ -467,18 +594,53 @@
         </p>
 
         <div class="hero-buttons">
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="#contact" class="secondary-btn">Start a Project</a>
+
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+          </a>
+
+          <a href="#contact" class="btn">
+            Start a Project
+          </a>
+
+          <a href="#lab" class="btn">
+            Explore the Lab
+          </a>
+
         </div>
 
       </div>
 
       <div class="hero-image">
+
         <img
           src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1800&auto=format&fit=crop"
           alt="Luxury Performance Vehicle"
         />
+
       </div>
+
+    </div>
+
+  </section>
+
+  <!-- PHILOSOPHY -->
+
+  <section class="philosophy">
+
+    <div class="container">
+
+      <div class="section-label">
+        Philosophy
+      </div>
+
+      <h2>
+        DESIGNING EMOTION THROUGH <span>IDENTITY, MOTION, AND SYSTEMS.</span>
+      </h2>
+
+      <p class="section-text">
+        xColor blends branding intelligence, cinematic storytelling, AI-assisted creativity, and physical execution into premium visual experiences built for modern brands and future-focused founders.
+      </p>
 
     </div>
 
@@ -490,45 +652,87 @@
 
     <div class="container">
 
-      <div class="section-label">What We Do</div>
+      <div class="section-label">
+        Services
+      </div>
 
       <h2>
-        FULL-SPECTRUM CREATIVE BRANDING <span>SOLUTIONS.</span>
+        A COMPLETE CREATIVE PERFORMANCE <span>ECOSYSTEM.</span>
       </h2>
 
       <div class="services-grid">
 
         <div class="card">
+
           <div class="icon">✦</div>
 
           <h3>xColor Identity</h3>
 
           <p>
-            Strategic brand identity systems for startups, founders, and future-focused businesses.
+            Startup branding systems, founder identity, AI-assisted creative direction, and scalable visual frameworks.
           </p>
+
+          <a href="#" class="micro-link">
+            Explore Identity →
+          </a>
+
         </div>
 
         <div class="card">
+
           <div class="icon">◢</div>
 
           <h3>xColor Motion</h3>
 
           <p>
-            Fleet branding, signage, environmental graphics, and real-world visual deployment.
+            Fleet branding, signage systems, environmental graphics, installation workflows, and visual deployment.
           </p>
+
+          <a href="#" class="micro-link">
+            Explore Motion →
+          </a>
+
         </div>
 
         <div class="card">
+
           <div class="icon">⟐</div>
 
           <h3>xColor Performance</h3>
 
           <p>
-            Motorsport-inspired visuals, racing culture media, and performance-driven creative direction.
+            Motorsport-inspired visuals, racing culture concepts, cinematic content, and performance storytelling.
           </p>
+
+          <a href="#" class="micro-link">
+            Explore Performance →
+          </a>
+
         </div>
 
       </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta-panel">
+
+    <div class="container">
+
+      <div class="section-label">
+        Start Your Vision
+      </div>
+
+      <h2>
+        BUILD A BRAND PEOPLE <span>REMEMBER.</span>
+      </h2>
+
+      <a href="#contact" class="btn btn-primary">
+        Start a Project
+      </a>
 
     </div>
 
@@ -540,7 +744,9 @@
 
     <div class="container">
 
-      <div class="section-label">Featured Projects</div>
+      <div class="section-label">
+        Featured Projects
+      </div>
 
       <h2>
         TRANSFORMING IDEAS INTO REAL-WORLD <span>IMPACT.</span>
@@ -556,8 +762,13 @@
           />
 
           <div class="project-overlay">
+
             <h4>Prime Services</h4>
-            <p>Fleet Branding</p>
+
+            <p>
+              Fleet Branding System
+            </p>
+
           </div>
 
         </div>
@@ -570,8 +781,13 @@
           />
 
           <div class="project-overlay">
+
             <h4>Nexa Capital</h4>
-            <p>Brand Identity System</p>
+
+            <p>
+              Founder Identity System
+            </p>
+
           </div>
 
         </div>
@@ -580,12 +796,17 @@
 
           <img
             src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
-            alt="Motorsport Visuals"
+            alt="Performance Visuals"
           />
 
           <div class="project-overlay">
+
             <h4>Apex Racing</h4>
-            <p>Performance Visuals</p>
+
+            <p>
+              Performance Visual Direction
+            </p>
+
           </div>
 
         </div>
@@ -598,55 +819,179 @@
 
   <!-- PROCESS -->
 
-  <section id="process">
+  <section>
 
     <div class="container">
 
-      <div class="section-label">Our Process</div>
+      <div class="section-label">
+        Process
+      </div>
 
       <h2>
-        A STRATEGIC APPROACH TO EVERY <span>PROJECT.</span>
+        STRATEGIC THINKING. PRECISION <span>EXECUTION.</span>
       </h2>
 
       <div class="process-grid">
 
         <div class="step">
-          <div class="step-number">01</div>
-          <h5>Discover</h5>
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h5>
+            Discover
+          </h5>
 
           <p>
-            We learn about your vision, audience, positioning, and long-term goals.
+            We define positioning, audience, goals, and emotional direction.
           </p>
+
         </div>
 
         <div class="step">
-          <div class="step-number">02</div>
-          <h5>Design</h5>
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h5>
+            Design
+          </h5>
 
           <p>
-            We create emotionally intelligent visuals powered by strategy and precision.
+            AI-assisted exploration meets human taste and cinematic visual systems.
           </p>
+
         </div>
 
         <div class="step">
-          <div class="step-number">03</div>
-          <h5>Develop</h5>
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h5>
+            Develop
+          </h5>
 
           <p>
-            We refine systems, assets, content, and physical deployment workflows.
+            We build scalable branding systems, content structures, and deployment assets.
           </p>
+
         </div>
 
         <div class="step">
-          <div class="step-number">04</div>
-          <h5>Deploy</h5>
+
+          <div class="step-number">
+            04
+          </div>
+
+          <h5>
+            Deploy
+          </h5>
 
           <p>
-            We launch cohesive experiences across digital and real-world environments.
+            Digital identity and physical execution merge into one cohesive experience.
           </p>
+
         </div>
 
       </div>
+
+    </div>
+
+  </section>
+
+  <!-- LAB -->
+
+  <section id="lab">
+
+    <div class="container">
+
+      <div class="section-label">
+        The Lab
+      </div>
+
+      <h2>
+        EXPLORING FUTURE VISUAL <span>SYSTEMS.</span>
+      </h2>
+
+      <div class="lab-grid">
+
+        <div class="lab-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+            alt="AI Creative Systems"
+          />
+
+          <div class="lab-content">
+
+            <h4>
+              AI-Assisted Brand Systems
+            </h4>
+
+            <p>
+              Exploring scalable creative workflows powered by AI-assisted ideation and cinematic storytelling systems.
+            </p>
+
+            <a href="#" class="micro-link">
+              Explore Concepts →
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="lab-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1200&auto=format&fit=crop"
+            alt="Performance Culture"
+          />
+
+          <div class="lab-content">
+
+            <h4>
+              Performance Culture Experiments
+            </h4>
+
+            <p>
+              Motorsport-inspired aesthetics, motion systems, cinematic visual direction, and future performance identity.
+            </p>
+
+            <a href="#" class="micro-link">
+              Enter the Lab →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FINAL CTA -->
+
+  <section class="cta-panel">
+
+    <div class="container">
+
+      <div class="section-label">
+        Build the Future
+      </div>
+
+      <h2>
+        LET’S CREATE SOMETHING <span>UNFORGETTABLE.</span>
+      </h2>
+
+      <a href="#contact" class="btn btn-primary">
+        Start a Project
+      </a>
 
     </div>
 
@@ -663,8 +1008,14 @@
         <div class="footer-brand">
 
           <div class="logo">
-            <img src="https://i.imgur.com/TnYV9bO.png" alt="xColor Logo">
+
+            <!-- EMPTY LOGO POSITION -->
+            <div class="logo-box">
+              LOGO
+            </div>
+
             <span>xColor</span>
+
           </div>
 
           <p>
@@ -676,21 +1027,44 @@
         <div class="footer-links">
 
           <div>
-            <h6>Navigation</h6>
+
+            <h6>
+              Navigation
+            </h6>
+
             <a href="#">Home</a>
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
+            <a href="#lab">Lab</a>
+
           </div>
 
           <div>
-            <h6>Divisions</h6>
-            <a href="#">xColor Identity</a>
-            <a href="#">xColor Motion</a>
-            <a href="#">xColor Performance</a>
+
+            <h6>
+              Divisions
+            </h6>
+
+            <a href="#">
+              xColor Identity
+            </a>
+
+            <a href="#">
+              xColor Motion
+            </a>
+
+            <a href="#">
+              xColor Performance
+            </a>
+
           </div>
 
           <div>
-            <h6>Contact</h6>
+
+            <h6>
+              Contact
+            </h6>
+
             <a href="mailto:hello@thexcolor.com">
               hello@thexcolor.com
             </a>
@@ -698,6 +1072,7 @@
             <a href="#">
               Saint Louis, Missouri
             </a>
+
           </div>
 
         </div>
