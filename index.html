@@ -1,840 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>X Color</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --bg:#0A0A0A;
-  --card:#141414;
-  --text:#FFFFFF;
-  --muted:#E0E0E0;
-  --primary:#FF3366;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
-
-/* =========================
-LAYOUT
-========================= */
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:90px 24px;
-}
-
-.grid{
-  display:grid;
-  gap:48px;
-}
-
-.grid-2{
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-}
-
-.center{
-  text-align:center;
-}
-
-@media(max-width:900px){
-
-  .grid-2{
-    grid-template-columns:1fr;
-  }
-
-}
-
-/* =========================
-NAVIGATION
-========================= */
-
-.nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(10,10,10,0.8);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  height:28px;
-  width:auto;
-  display:block;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:24px;
-}
-
-.nav-link{
-  color:#AAAAAA;
-  text-decoration:none;
-  font-size:0.92rem;
-  transition:0.2s ease;
-}
-
-.nav-link:hover{
-  color:white;
-}
-
-@media(max-width:700px){
-
-  .nav-right .nav-link{
-    display:none;
-  }
-
-}
-
-/* =========================
-BUTTONS
-========================= */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 26px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.25s ease;
-}
-
-.btn-primary{
-  background:var(--primary);
-  color:white;
-}
-
-.btn-primary:hover{
-  transform:translateY(-1px);
-  box-shadow:0 10px 24px rgba(255,51,102,0.25);
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,0.15);
-  color:white;
-}
-
-.btn-secondary:hover{
-  border-color:white;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:14px;
-  margin-top:28px;
-  flex-wrap:wrap;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-}
-
-.hero-left h1{
-  font-size:4rem;
-  line-height:1.02;
-  letter-spacing:-2px;
-  margin-bottom:24px;
-}
-
-.hero-left h1 span{
-  color:var(--primary);
-}
-
-.hero-left p{
-  color:var(--muted);
-  font-size:1.12rem;
-  max-width:520px;
-}
-
-@media(max-width:900px){
-
-  .hero-left h1{
-    font-size:2.8rem;
-  }
-
-}
-
-.hero-right{
-  padding:0;
-  border-radius:28px;
-}
-
-.hero-image{
-  width:115%;
-  max-width:none;
-  margin-left:-5%;
-  border-radius:18px;
-  display:block;
-}
-
-/* =========================
-HEADLINES
-========================= */
-
-.section-title{
-  font-size:2.2rem;
-  margin-bottom:14px;
-  text-align:center;
-}
-
-.section-sub{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:28px;
-  font-size:2rem;
-  line-height:1.2;
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* =========================
-IMAGES
-========================= */
-
-.section-img{
-  width:100%;
-  border-radius:18px;
-  display:block;
-}
-
-/* =========================
-PRICING
-========================= */
-
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  margin-top:40px;
-}
-
-@media(max-width:900px){
-
-  .pricing-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-.price-card{
-  background:var(--card);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:24px;
-  padding:32px;
-  transition:0.25s ease;
-}
-
-.price-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(255,255,255,0.15);
-}
-
-.price-card.featured{
-  border-color:rgba(255,51,102,0.45);
-}
-
-.price-icon{
-  font-size:1.6rem;
-  margin-bottom:18px;
-}
-
-.price-card h3{
-  font-size:1.4rem;
-  margin-bottom:14px;
-}
-
-.price{
-  font-size:2rem;
-  font-weight:800;
-  color:var(--primary);
-  margin-bottom:22px;
-}
-
-.price-card ul{
-  list-style:none;
-  margin-bottom:28px;
-}
-
-.price-card li{
-  color:#AAAAAA;
-  margin-bottom:10px;
-  line-height:1.5;
-}
-
-/* =========================
-CALCULATOR
-========================= */
-
-.roi-box{
-  max-width:520px;
-  margin:auto;
-  background:#F3F3F3;
-  padding:32px;
-  border-radius:24px;
-  color:#111111;
-}
-
-.roi-box label{
-  color:#555;
-  font-size:0.92rem;
-}
-
-.roi-box input{
-  width:100%;
-  background:white;
-  border:none;
-  border-radius:10px;
-  padding:14px;
-  margin-top:8px;
-  margin-bottom:18px;
-  color:#111;
-  font-size:1rem;
-}
-
-.roi-result{
-  margin-top:22px;
-  color:var(--primary);
-  font-weight:700;
-  font-size:1.1rem;
-}
-
-/* =========================
-FOUNDER
-========================= */
-
-.founder-image{
-  width:100%;
-  border-radius:18px;
-  display:block;
-}
-
-.founder-copy h2{
-  font-size:2.2rem;
-  margin-bottom:16px;
-}
-
-.founder-copy p{
-  color:var(--muted);
-  max-width:520px;
-  margin-bottom:24px;
-}
-
-/* =========================
-REVEAL
-========================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.8s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.footer{
-  text-align:center;
-  color:#666;
-  border-top:1px solid rgba(255,255,255,0.05);
-}
-
-.footer a{
-  color:var(--primary);
-  text-decoration:none;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>xColor | AI-Driven Creative Performance Studio</title>
+
+  <meta
+    name="description"
+    content="xColor is a future-focused creative performance studio blending AI-assisted branding, cinematic storytelling, fleet graphics, signage, and real-world visual execution."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#050505;
+      --panel:#0b0b0b;
+      --text:#f2f2f2;
+      --muted:#8b8b8b;
+      --line:#1c1c1c;
+      --pink:#ff2d7a;
+      --purple:#8b5cf6;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1400px,92%);
+      margin:auto;
+    }
+
+    /* NAV */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:999;
+      background:rgba(5,5,5,0.7);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo img{
+      width:52px;
+    }
+
+    .logo span{
+      font-size:2rem;
+      font-weight:300;
+      letter-spacing:-1px;
+    }
+
+    .menu{
+      display:flex;
+      gap:42px;
+      align-items:center;
+    }
+
+    .menu a{
+      color:#cfcfcf;
+      font-size:0.9rem;
+      transition:0.3s;
+    }
+
+    .menu a:hover{
+      color:white;
+    }
+
+    .btn{
+      border:1px solid var(--pink);
+      padding:14px 24px;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:linear-gradient(90deg,var(--purple),var(--pink));
+      border-color:transparent;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      color:var(--pink);
+      font-size:0.8rem;
+      letter-spacing:2px;
+      margin-bottom:30px;
+      text-transform:uppercase;
+    }
+
+    h1{
+      font-size:5rem;
+      line-height:0.95;
+      font-weight:300;
+      letter-spacing:-4px;
+      margin-bottom:30px;
+    }
+
+    h1 span{
+      color:var(--pink);
+    }
+
+    .hero p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:1.1rem;
+      max-width:520px;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+    }
+
+    .secondary-btn{
+      border:1px solid #333;
+      padding:14px 24px;
+    }
+
+    .hero-image{
+      position:relative;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:22px;
+      opacity:0.96;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:140px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .section-label{
+      color:var(--pink);
+      text-transform:uppercase;
+      font-size:0.8rem;
+      letter-spacing:2px;
+      margin-bottom:18px;
+    }
+
+    h2{
+      font-size:3rem;
+      font-weight:300;
+      line-height:1.05;
+      letter-spacing:-2px;
+      margin-bottom:70px;
+      max-width:700px;
+    }
+
+    h2 span{
+      color:var(--pink);
+    }
+
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:40px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#0b0b0b,#070707);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:42px;
+      border-radius:22px;
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:rgba(255,45,122,0.4);
+    }
+
+    .card h3{
+      font-size:1.5rem;
+      margin:28px 0 16px;
+      font-weight:500;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .icon{
+      width:72px;
+      height:72px;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--purple),var(--pink));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.8rem;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+    }
+
+    .project{
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .project img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .project:hover img{
+      transform:scale(1.05);
+    }
+
+    .project-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:30px;
+    }
+
+    .project-overlay h4{
+      font-size:1.5rem;
+      margin-bottom:10px;
+      font-weight:500;
+    }
+
+    .project-overlay p{
+      color:#c8c8c8;
+    }
+
+    /* PROCESS */
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:30px;
+    }
+
+    .step{
+      border-top:1px solid rgba(255,255,255,0.1);
+      padding-top:30px;
+    }
+
+    .step-number{
+      font-size:4rem;
+      font-weight:200;
+      color:var(--pink);
+      margin-bottom:20px;
+    }
+
+    .step h5{
+      font-size:1.2rem;
+      margin-bottom:16px;
+      font-weight:500;
+    }
+
+    .step p{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:80px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:40px;
+      flex-wrap:wrap;
+    }
+
+    .footer-brand{
+      max-width:420px;
+    }
+
+    .footer-brand p{
+      margin-top:20px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:80px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links h6{
+      margin-bottom:20px;
+      font-size:0.9rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:white;
+    }
+
+    .footer-links a{
+      display:block;
+      color:var(--muted);
+      margin-bottom:12px;
+      transition:0.3s;
+    }
+
+    .footer-links a:hover{
+      color:white;
+    }
+
+    .copyright{
+      margin-top:60px;
+      color:#666;
+      font-size:0.85rem;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1100px){
+
+      .hero-grid,
+      .services-grid,
+      .projects-grid,
+      .process-grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:3.8rem;
+      }
+
+      h2{
+        font-size:2.4rem;
+      }
+
+      .menu{
+        display:none;
+      }
+
+      .hero{
+        padding-top:140px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-NAVIGATION
-========================= -->
+  <!-- NAV -->
 
-<header class="nav">
+  <nav>
+    <div class="container nav-wrap">
 
-  <div class="nav-inner">
+      <div class="logo">
+        <img src="https://i.imgur.com/TnYV9bO.png" alt="xColor Logo">
+        <span>xColor</span>
+      </div>
 
-    <img src="images/logo.png"
-         class="logo"
-         alt="X Color">
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
 
-    <div class="nav-right">
-
-      <a href="#work"
-         class="nav-link">
-         Work
-      </a>
-
-      <a href="#pricing"
-         class="nav-link">
-         Pricing
-      </a>
-
-      <a href="#calculator"
-         class="nav-link">
-         Calculator
-      </a>
-
-      <a href="#contact"
-         class="nav-link">
-         Contact
-      </a>
-
-      <a href="mailto:hello@thexcolor.com"
-         class="btn btn-primary">
-         Get audit →
-      </a>
+        <a href="#" class="btn">Start a Project</a>
+      </div>
 
     </div>
+  </nav>
 
-  </div>
+  <!-- HERO -->
 
-</header>
+  <section class="hero">
 
-<!-- =========================
-HERO
-========================= -->
+    <div class="container hero-grid">
 
-<section class="container hero">
+      <div>
 
-  <div class="grid grid-2">
+        <div class="eyebrow">
+          AI-Driven Creative Performance Studio
+        </div>
 
-    <div class="hero-left reveal">
+        <h1>
+          BRANDS THAT MOVE. <br>
+          IDENTITIES THAT <span>STAY.</span>
+        </h1>
 
-      <h1>
-        Color drives trust.<br>
-        Trust drives <span>growth.</span>
-      </h1>
+        <p>
+          xColor helps modern brands build emotionally powerful identities through AI-assisted design, cinematic storytelling, fleet graphics, signage, and real-world visual execution.
+        </p>
 
-      <p>
-        Conversion-focused brand systems in 7 days.
-      </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="secondary-btn">Start a Project</a>
+        </div>
 
-      <div class="hero-buttons">
+      </div>
 
-        <a href="mailto:hello@thexcolor.com"
-           class="btn btn-primary">
-           Get your free audit →
-        </a>
-
-        <a href="#work"
-           class="btn btn-secondary">
-           See how it works
-        </a>
-
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1800&auto=format&fit=crop"
+          alt="Luxury Performance Vehicle"
+        />
       </div>
 
     </div>
 
-    <div class="hero-right reveal">
+  </section>
 
-      <img src="images/hero.jpg"
-           class="hero-image"
-           alt="Hero">
+  <!-- SERVICES -->
 
-    </div>
+  <section id="services">
 
-  </div>
+    <div class="container">
 
-</section>
-
-<!-- =========================
-INTRO
-========================= -->
-
-<section class="container reveal">
-
-  <p class="section-sub">
-    Strategic color systems for modern startups.
-  </p>
-
-</section>
-
-<!-- =========================
-BEFORE / AFTER
-========================= -->
-
-<section class="container reveal"
-         id="work">
-
-  <h2 class="section-title">
-    Same product. Better results.
-  </h2>
-
-  <p class="section-sub"
-     style="font-size:1rem;">
-    The difference is strategic color positioning.
-  </p>
-
-  <img src="images/before-after.jpg"
-       class="section-img">
-
-</section>
-
-<!-- =========================
-CTA IMAGE
-========================= -->
-
-<section class="container reveal">
-
-
-
-  <img src="images/cta-after.jpg"
-       class="section-img">
-
-</section>
-
-<!-- =========================
-PALETTE
-========================= -->
-
-<section class="container reveal">
-
-  <h2 class="section-title">
-    Color with purpose.
-  </h2>
-
-  <p class="section-sub"
-     style="font-size:1rem;">
-    Designed for emotion, clarity, and conversion.
-  </p>
-
-  <img src="images/palette.jpg"
-       class="section-img">
-
-</section>
-
-<!-- =========================
-PRICING
-========================= -->
-
-<section class="container reveal"
-         id="pricing">
-
-  <h2 class="section-title">
-    Pick your speed.
-  </h2>
-
-  <p class="section-sub"
-     style="font-size:1rem;">
-    Founder-led branding packages for modern startups.
-  </p>
-
-  <div class="pricing-grid">
-
-    <div class="price-card">
-
-      <div class="price-icon">
-        🔍
-      </div>
-
-      <h3>
-        Color Audit
-      </h3>
-
-      <div class="price">
-        $500
-      </div>
-
-      <ul>
-        <li>48-hour turnaround</li>
-        <li>Competitor analysis</li>
-        <li>Strategic palette direction</li>
-        <li>PDF recommendations</li>
-      </ul>
-
-      <a href="mailto:hello@thexcolor.com"
-         class="btn btn-primary">
-         Start audit →
-      </a>
-
-    </div>
-
-    <div class="price-card featured">
-
-      <div class="price-icon">
-        ⚡
-      </div>
-
-      <h3>
-        Visual Sprint
-      </h3>
-
-      <div class="price">
-        $1,500
-      </div>
-
-      <ul>
-        <li>48-hour delivery</li>
-        <li>Logo + palette system</li>
-        <li>Deck templates</li>
-        <li>Launch-ready assets</li>
-      </ul>
-
-      <a href="mailto:hello@thexcolor.com"
-         class="btn btn-primary">
-         Start sprint →
-      </a>
-
-    </div>
-
-    <div class="price-card">
-
-      <div class="price-icon">
-        🎨
-      </div>
-
-      <h3>
-        Full Identity
-      </h3>
-
-      <div class="price">
-        $2,500+
-      </div>
-
-      <ul>
-        <li>Full strategic identity</li>
-        <li>Logo suite</li>
-        <li>Brand system</li>
-        <li>Launch visuals</li>
-      </ul>
-
-      <a href="mailto:hello@thexcolor.com"
-         class="btn btn-primary">
-         Build brand →
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
-CALCULATOR
-========================= -->
-
-<section class="container reveal"
-         id="calculator">
-
-  <h2 class="section-title">
-    How much are you losing?
-  </h2>
-
-  <p class="section-sub"
-     style="font-size:1rem;">
-    Strategic color can dramatically improve conversion.
-  </p>
-
-  <div class="roi-box">
-
-    <label>
-      Monthly visitors
-    </label>
-
-    <input type="number"
-           id="visitors">
-
-    <label>
-      Conversion rate (%)
-    </label>
-
-    <input type="number"
-           id="cvr">
-
-    <label>
-      Average order value ($)
-    </label>
-
-    <input type="number"
-           id="aov">
-
-    <button class="btn btn-primary"
-            onclick="calc()">
-      Calculate →
-    </button>
-
-    <div id="result"
-         class="roi-result">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
-FOUNDER
-========================= -->
-
-<section class="container reveal"
-         id="contact">
-
-  <div class="grid grid-2">
-
-    <div>
-
-      <img src="images/portrait.jpg"
-           class="founder-image">
-
-    </div>
-
-    <div class="founder-copy">
+      <div class="section-label">What We Do</div>
 
       <h2>
-        Work directly with me.
+        FULL-SPECTRUM CREATIVE BRANDING <span>SOLUTIONS.</span>
       </h2>
 
-      <p>
-        No account managers.
-        No layers.
-        No delays.
-        Just focused execution,
-        strategic design,
-        and founder-led delivery.
-      </p>
+      <div class="services-grid">
 
-      <div class="hero-buttons">
+        <div class="card">
+          <div class="icon">✦</div>
 
-        <a href="mailto:hello@thexcolor.com"
-           class="btn btn-primary">
-           Book a call →
-        </a>
+          <h3>xColor Identity</h3>
 
-        <a href="mailto:hello@thexcolor.com"
-           class="btn btn-secondary">
-           Email me
-        </a>
+          <p>
+            Strategic brand identity systems for startups, founders, and future-focused businesses.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">◢</div>
+
+          <h3>xColor Motion</h3>
+
+          <p>
+            Fleet branding, signage, environmental graphics, and real-world visual deployment.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⟐</div>
+
+          <h3>xColor Performance</h3>
+
+          <p>
+            Motorsport-inspired visuals, racing culture media, and performance-driven creative direction.
+          </p>
+        </div>
 
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- PROJECTS -->
 
-<!-- =========================
-FOOTER
-========================= -->
+  <section id="projects">
 
-<section class="container footer">
+    <div class="container">
 
-  <p>
-    © X Color
-  </p>
+      <div class="section-label">Featured Projects</div>
 
-  <p style="margin-top:10px;">
+      <h2>
+        TRANSFORMING IDEAS INTO REAL-WORLD <span>IMPACT.</span>
+      </h2>
 
-    <a href="mailto:hello@thexcolor.com">
-      hello@thexcolor.com
-    </a>
+      <div class="projects-grid">
 
-  </p>
+        <div class="project">
 
-</section>
+          <img
+            src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?q=80&w=1200&auto=format&fit=crop"
+            alt="Fleet Branding"
+          />
 
-<script>
+          <div class="project-overlay">
+            <h4>Prime Services</h4>
+            <p>Fleet Branding</p>
+          </div>
 
-/* =========================
-REVEAL
-========================= */
+        </div>
 
-const observer =
-new IntersectionObserver(entries=>{
+        <div class="project">
 
-  entries.forEach(entry=>{
+          <img
+            src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop"
+            alt="Brand Identity"
+          />
 
-    if(entry.isIntersecting){
+          <div class="project-overlay">
+            <h4>Nexa Capital</h4>
+            <p>Brand Identity System</p>
+          </div>
 
-      entry.target.classList.add('active');
+        </div>
 
-    }
+        <div class="project">
 
-  });
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
+            alt="Motorsport Visuals"
+          />
 
-});
+          <div class="project-overlay">
+            <h4>Apex Racing</h4>
+            <p>Performance Visuals</p>
+          </div>
 
-document.querySelectorAll('.reveal')
-.forEach(el=>observer.observe(el));
+        </div>
 
-/* =========================
-CALCULATOR
-========================= */
+      </div>
 
-function calc(){
+    </div>
 
-  let visitors =
-  +document.getElementById('visitors').value;
+  </section>
 
-  let cvr =
-  +document.getElementById('cvr').value;
+  <!-- PROCESS -->
 
-  let aov =
-  +document.getElementById('aov').value;
+  <section id="process">
 
-  let revenue =
-  visitors * (cvr/100) * aov;
+    <div class="container">
 
-  let loss =
-  revenue * 0.1;
+      <div class="section-label">Our Process</div>
 
-  document.getElementById('result').innerText =
-  "Estimated lost revenue: $" +
-  loss.toLocaleString();
+      <h2>
+        A STRATEGIC APPROACH TO EVERY <span>PROJECT.</span>
+      </h2>
 
-}
+      <div class="process-grid">
 
-</script>
+        <div class="step">
+          <div class="step-number">01</div>
+          <h5>Discover</h5>
+
+          <p>
+            We learn about your vision, audience, positioning, and long-term goals.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <h5>Design</h5>
+
+          <p>
+            We create emotionally intelligent visuals powered by strategy and precision.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <h5>Develop</h5>
+
+          <p>
+            We refine systems, assets, content, and physical deployment workflows.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">04</div>
+          <h5>Deploy</h5>
+
+          <p>
+            We launch cohesive experiences across digital and real-world environments.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <div class="logo">
+            <img src="https://i.imgur.com/TnYV9bO.png" alt="xColor Logo">
+            <span>xColor</span>
+          </div>
+
+          <p>
+            AI-driven creative performance studio specializing in startup identity systems, fleet branding, signage, cinematic storytelling, and real-world visual execution.
+          </p>
+
+        </div>
+
+        <div class="footer-links">
+
+          <div>
+            <h6>Navigation</h6>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+          </div>
+
+          <div>
+            <h6>Divisions</h6>
+            <a href="#">xColor Identity</a>
+            <a href="#">xColor Motion</a>
+            <a href="#">xColor Performance</a>
+          </div>
+
+          <div>
+            <h6>Contact</h6>
+            <a href="mailto:hello@thexcolor.com">
+              hello@thexcolor.com
+            </a>
+
+            <a href="#">
+              Saint Louis, Missouri
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 xColor. Built with precision.
+      </div>
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
