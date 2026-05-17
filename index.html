@@ -355,7 +355,6 @@ h2 span{
 .card p{
   color:var(--muted);
   line-height:1.85;
-  margin-bottom:26px;
 }
 
 /* PACKAGES */
@@ -410,49 +409,73 @@ h2 span{
   color:#d0d0d0;
 }
 
-/* PROJECTS */
+/* CASE STUDIES */
 
-.projects-grid{
+.case-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:24px;
+  gap:32px;
   margin-top:70px;
 }
 
-.project{
-  position:relative;
-  overflow:hidden;
-  border-radius:26px;
+.case-card{
+  background:#090909;
   border:1px solid rgba(255,255,255,0.05);
+  border-radius:30px;
+  overflow:hidden;
+  transition:0.4s;
 }
 
-.project img{
-  height:560px;
+.case-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,45,122,0.25);
+}
+
+.case-image img{
+  height:420px;
   object-fit:cover;
   transition:0.6s;
 }
 
-.project:hover img{
-  transform:scale(1.05);
+.case-card:hover .case-image img{
+  transform:scale(1.04);
 }
 
-.project-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.88), transparent);
+.case-content{
+  padding:38px;
+}
+
+.case-tag{
+  color:var(--pink);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:0.76rem;
+  margin-bottom:18px;
+}
+
+.case-content h3{
+  font-size:2rem;
+  margin-bottom:18px;
+}
+
+.case-content p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:30px;
+}
+
+.case-details{
   display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:32px;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
-.project-overlay h4{
-  font-size:1.5rem;
-  margin-bottom:10px;
-}
-
-.project-overlay p{
+.case-details span{
+  padding:10px 16px;
+  border-radius:100px;
+  border:1px solid rgba(255,255,255,0.08);
   color:#d0d0d0;
+  font-size:0.84rem;
 }
 
 /* FOOTER */
@@ -491,7 +514,7 @@ footer{
   .startup-grid,
   .services-grid,
   .packages-grid,
-  .projects-grid{
+  .case-grid{
     grid-template-columns:1fr;
   }
 
@@ -541,7 +564,7 @@ class="logo-image"
 <a href="#startup">Startups</a>
 <a href="#services">Services</a>
 <a href="#packages">Packages</a>
-<a href="#projects">Projects</a>
+<a href="#case-studies">Case Studies</a>
 
 </div>
 
@@ -556,7 +579,7 @@ class="logo-image"
 <div class="hero-bg">
 
 <img
-src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2200&auto=format&fit=crop"
+src="images/ferrari.png"
 alt="Hero Background"
 />
 
@@ -666,6 +689,70 @@ Real-World Deployment
 
 <p>
 Fleet graphics, signage systems, launch materials, environmental branding, and physical visual execution.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-label">
+Services
+</div>
+
+<h2>
+A MODERN CREATIVE PERFORMANCE <span>ECOSYSTEM.</span>
+</h2>
+
+<div class="services-grid">
+
+<div class="card">
+
+<div class="icon">✦</div>
+
+<h3>
+xColor Identity
+</h3>
+
+<p>
+Startup branding systems, founder identity, scalable visual direction, and launch-ready startup positioning.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">◢</div>
+
+<h3>
+xColor Motion
+</h3>
+
+<p>
+Fleet branding, signage systems, environmental graphics, and real-world visual implementation.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">⟐</div>
+
+<h3>
+xColor Performance
+</h3>
+
+<p>
+Motorsport-inspired aesthetics, cinematic storytelling, and performance-focused visual culture systems.
 </p>
 
 </div>
@@ -800,59 +887,169 @@ Start Deployment
 
 </section>
 
-<!-- PROJECTS -->
+<!-- CASE STUDIES -->
 
-<section id="projects">
+<section id="case-studies">
 
 <div class="container">
 
 <div class="section-label">
-Featured Projects
+Selected Case Studies
 </div>
 
 <h2>
-TRANSFORMING IDEAS INTO REAL-WORLD <span>EXPERIENCES.</span>
+VISUAL SYSTEMS BUILT FOR <span>REAL-WORLD IMPACT.</span>
 </h2>
 
-<div class="projects-grid">
+<p class="section-text">
+xColor combines startup branding, cinematic storytelling, AI-assisted workflows, and real-world deployment into scalable visual ecosystems designed for ambitious founders and modern businesses.
+</p>
 
-<div class="project">
+<div class="case-grid">
+
+<div class="case-card">
+
+<div class="case-image">
 
 <img
 src="images/kartgenesv.png"
-alt="KartGenes"
+alt="KartGenes Case Study"
 />
 
-<div class="project-overlay">
+</div>
 
-<h4>
+<div class="case-content">
+
+<div class="case-tag">
+Startup Identity System
+</div>
+
+<h3>
 KartGenes
-</h4>
+</h3>
 
 <p>
-Racing Identity System
+KartGenes was developed as a performance-focused startup identity system inspired by motorsport culture, engineering precision, and cinematic visual storytelling.
 </p>
 
+<div class="case-details">
+
+<span>AI-Assisted Brand Direction</span>
+<span>Performance Culture Positioning</span>
+<span>Startup Launch Identity</span>
+
+</div>
+
 </div>
 
 </div>
 
-<div class="project">
+<div class="case-card">
+
+<div class="case-image">
 
 <img
 src="images/fleetv.png"
-alt="Fleet Branding"
+alt="Fleet Branding System"
 />
 
-<div class="project-overlay">
+</div>
 
-<h4>
+<div class="case-content">
+
+<div class="case-tag">
+Fleet Branding System
+</div>
+
+<h3>
 Prime Services
-</h4>
+</h3>
 
 <p>
-Fleet Branding System
+A scalable fleet identity concept designed for high-visibility service operations requiring cohesive branding across vehicles and environments.
 </p>
+
+<div class="case-details">
+
+<span>Vehicle Graphics</span>
+<span>Environmental Branding</span>
+<span>Scalable Deployment</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
+<div class="case-image">
+
+<img
+src="images/audi.png"
+alt="Startup Identity Exploration"
+/>
+
+</div>
+
+<div class="case-content">
+
+<div class="case-tag">
+Founder Identity Exploration
+</div>
+
+<h3>
+Future Motion
+</h3>
+
+<p>
+A cinematic startup identity exploration combining minimalist typography, luxury performance aesthetics, and emotionally intelligent visual systems.
+</p>
+
+<div class="case-details">
+
+<span>Founder Branding</span>
+<span>Typography Systems</span>
+<span>Cinematic Direction</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
+<div class="case-image">
+
+<img
+src="images/ferrari.png"
+alt="Performance Culture System"
+/>
+
+</div>
+
+<div class="case-content">
+
+<div class="case-tag">
+Performance Culture System
+</div>
+
+<h3>
+Apex Racing
+</h3>
+
+<p>
+A visual storytelling system inspired by racing culture, engineering mentality, and high-performance emotional branding.
+</p>
+
+<div class="case-details">
+
+<span>Motorsport Storytelling</span>
+<span>Cinematic Motion Design</span>
+<span>Visual Culture Development</span>
+
+</div>
 
 </div>
 
