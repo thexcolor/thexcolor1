@@ -6,11 +6,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>xColor | AI-Driven Startup Identity & Visual Systems Studio</title>
+<title>xColor | AI-Driven Startup Identity Studio</title>
 
 <meta
   name="description"
-  content="xColor is an AI-driven startup identity and visual systems studio helping founders launch future-focused brands through cinematic storytelling, scalable branding, fleet graphics, and real-world execution."
+  content="xColor is an AI-driven startup identity and visual systems studio helping founders launch future-focused brands through cinematic storytelling, scalable branding systems, and real-world execution."
 />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,7 +122,7 @@ nav{
 .menu{
   display:flex;
   align-items:center;
-  gap:48px;
+  gap:42px;
   margin-left:auto;
 }
 
@@ -145,7 +145,6 @@ nav{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
   transition:0.35s;
   font-size:0.92rem;
   cursor:pointer;
@@ -266,7 +265,7 @@ h2 span{
 .section-text{
   color:var(--muted);
   line-height:1.9;
-  max-width:720px;
+  max-width:760px;
   font-size:1rem;
 }
 
@@ -288,13 +287,25 @@ h2 span{
 }
 
 .startup-card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
   border-color:rgba(255,45,122,0.25);
 }
 
+.startup-icon{
+  width:72px;
+  height:72px;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  margin-bottom:28px;
+}
+
 .startup-card h3{
-  font-size:1.45rem;
-  margin-bottom:20px;
+  font-size:1.5rem;
+  margin-bottom:18px;
 }
 
 .startup-card p{
@@ -347,10 +358,6 @@ h2 span{
   margin-bottom:26px;
 }
 
-.micro-link:hover{
-  color:var(--pink);
-}
-
 /* PACKAGES */
 
 .packages-grid{
@@ -360,55 +367,47 @@ h2 span{
   margin-top:70px;
 }
 
-.package{
+.package-card{
+  background:#090909;
   border:1px solid rgba(255,255,255,0.06);
   border-radius:28px;
   padding:42px;
-  background:#090909;
+  transition:0.35s;
 }
 
-.package h3{
-  font-size:1.7rem;
-  margin-bottom:14px;
+.package-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,45,122,0.25);
 }
 
-.package-price{
+.package-label{
   color:var(--pink);
-  font-size:2rem;
-  margin-bottom:26px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:0.78rem;
+  margin-bottom:18px;
 }
 
-.package ul{
-  list-style:none;
+.package-card h3{
+  font-size:1.8rem;
+  margin-bottom:18px;
+}
+
+.package-card p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:28px;
+}
+
+.package-features{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
   margin-bottom:36px;
 }
 
-.package ul li{
-  color:#cfcfcf;
-  margin-bottom:14px;
-}
-
-/* DIVISION DETAILS */
-
-.division-block{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-  padding-bottom:120px;
-  margin-bottom:120px;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.division-image{
-  overflow:hidden;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,0.05);
-}
-
-.division-image img{
-  height:520px;
-  object-fit:cover;
+.package-features span{
+  color:#d0d0d0;
 }
 
 /* PROJECTS */
@@ -452,6 +451,10 @@ h2 span{
   margin-bottom:10px;
 }
 
+.project-overlay p{
+  color:#d0d0d0;
+}
+
 /* FOOTER */
 
 footer{
@@ -475,29 +478,6 @@ footer{
   margin-top:24px;
 }
 
-.footer-links{
-  display:flex;
-  gap:70px;
-  flex-wrap:wrap;
-}
-
-.footer-links h6{
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:0.8rem;
-  margin-bottom:22px;
-}
-
-.footer-links a{
-  display:block;
-  color:var(--muted);
-  margin-bottom:14px;
-}
-
-.footer-links a:hover{
-  color:white;
-}
-
 .copyright{
   margin-top:70px;
   color:#666;
@@ -511,7 +491,6 @@ footer{
   .startup-grid,
   .services-grid,
   .packages-grid,
-  .division-block,
   .projects-grid{
     grid-template-columns:1fr;
   }
@@ -594,7 +573,7 @@ AI-Driven Startup Identity Studio
 </div>
 
 <h1>
-BUILDING FUTURE-READY <span>STARTUP SYSTEMS.</span>
+BUILDING FUTURE-READY <span>VISUAL SYSTEMS.</span>
 </h1>
 
 <p>
@@ -623,7 +602,7 @@ Start a Project
 
 </section>
 
-<!-- STARTUP POSITIONING -->
+<!-- STARTUP SECTION -->
 
 <section id="startup">
 
@@ -645,36 +624,48 @@ xColor combines startup positioning, AI-assisted visual systems, and real-world 
 
 <div class="startup-card">
 
+<div class="startup-icon">
+✦
+</div>
+
 <h3>
 Launch Identity
 </h3>
 
 <p>
-Naming direction, logo systems, typography, positioning, and scalable startup identity architecture.
+Startup positioning, founder identity systems, typography direction, scalable branding architecture, and launch-ready visuals.
 </p>
 
 </div>
 
 <div class="startup-card">
+
+<div class="startup-icon">
+◢
+</div>
 
 <h3>
 AI-Assisted Systems
 </h3>
 
 <p>
-Rapid visual exploration, scalable workflows, creative systems, and startup-ready brand infrastructure.
+Fast visual exploration, scalable workflows, AI-assisted creative direction, and intelligent startup branding systems.
 </p>
 
 </div>
 
 <div class="startup-card">
 
+<div class="startup-icon">
+⟐
+</div>
+
 <h3>
-Real-World Execution
+Real-World Deployment
 </h3>
 
 <p>
-Fleet graphics, signage systems, installations, launch visuals, and physical brand deployment.
+Fleet graphics, signage systems, launch materials, environmental branding, and physical visual execution.
 </p>
 
 </div>
@@ -701,23 +692,29 @@ CLEAR SYSTEMS FOR FOUNDERS WHO NEED <span>MOMENTUM.</span>
 
 <div class="packages-grid">
 
-<div class="package">
+<div class="package-card">
+
+<div class="package-label">
+Fast Launch
+</div>
 
 <h3>
 Startup Sprint
 </h3>
 
-<div class="package-price">
-Fast Launch
-</div>
+<p>
+A focused startup identity system designed for founders who need fast clarity and immediate launch momentum.
+</p>
 
-<ul>
-<li>Visual direction</li>
-<li>Logo system</li>
-<li>Typography selection</li>
-<li>Brand starter assets</li>
-<li>AI-assisted concepts</li>
-</ul>
+<div class="package-features">
+
+<span>• Visual Direction</span>
+<span>• Logo System</span>
+<span>• Typography Selection</span>
+<span>• Social Starter Kit</span>
+<span>• AI-Assisted Concepts</span>
+
+</div>
 
 <a
 href=""
@@ -729,23 +726,29 @@ Book Sprint
 
 </div>
 
-<div class="package">
+<div class="package-card">
+
+<div class="package-label">
+Founder System
+</div>
 
 <h3>
 Founder Identity
 </h3>
 
-<div class="package-price">
-Core System
-</div>
+<p>
+A scalable visual identity system designed to position ambitious startups with clarity, confidence, and distinction.
+</p>
 
-<ul>
-<li>Founder branding</li>
-<li>Identity system</li>
-<li>Social launch kit</li>
-<li>Landing page direction</li>
-<li>Content visual system</li>
-</ul>
+<div class="package-features">
+
+<span>• Founder Branding</span>
+<span>• Startup Identity System</span>
+<span>• Content Visual Direction</span>
+<span>• Landing Page Direction</span>
+<span>• Launch Assets</span>
+
+</div>
 
 <a
 href=""
@@ -757,23 +760,29 @@ Build Identity
 
 </div>
 
-<div class="package">
+<div class="package-card">
+
+<div class="package-label">
+Full Execution
+</div>
 
 <h3>
 Brand Deployment
 </h3>
 
-<div class="package-price">
-Full Execution
-</div>
+<p>
+Complete visual implementation for startups ready to move from digital identity into real-world environments.
+</p>
 
-<ul>
-<li>Fleet graphics</li>
-<li>Environmental visuals</li>
-<li>Signage systems</li>
-<li>Launch materials</li>
-<li>Physical implementation</li>
-</ul>
+<div class="package-features">
+
+<span>• Fleet Graphics</span>
+<span>• Signage Systems</span>
+<span>• Environmental Branding</span>
+<span>• Launch Materials</span>
+<span>• Physical Deployment</span>
+
+</div>
 
 <a
 href=""
@@ -791,7 +800,135 @@ Start Deployment
 
 </section>
 
-<!-- EXISTING CONTENT CONTINUES -->
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-label">
+Featured Projects
+</div>
+
+<h2>
+TRANSFORMING IDEAS INTO REAL-WORLD <span>EXPERIENCES.</span>
+</h2>
+
+<div class="projects-grid">
+
+<div class="project">
+
+<img
+src="images/kartgenesv.png"
+alt="KartGenes"
+/>
+
+<div class="project-overlay">
+
+<h4>
+KartGenes
+</h4>
+
+<p>
+Racing Identity System
+</p>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img
+src="images/fleetv.png"
+alt="Fleet Branding"
+/>
+
+<div class="project-overlay">
+
+<h4>
+Prime Services
+</h4>
+
+<p>
+Fleet Branding System
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FINAL CTA -->
+
+<section>
+
+<div class="container" style="text-align:center;">
+
+<div class="section-label">
+Build the Future
+</div>
+
+<h2 style="margin:auto auto 36px;">
+LET’S CREATE SOMETHING <span>UNFORGETTABLE.</span>
+</h2>
+
+<a
+href=""
+class="btn btn-primary"
+onclick="Calendly.initPopupWidget({url: 'https://calendly.com/xcolor/xcolor-discovery'});return false;"
+>
+Start a Project
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="logo">
+
+<div class="logo-box">
+
+<img
+src="images/xcolor-logo.png"
+alt="xColor Logo"
+class="logo-image"
+/>
+
+</div>
+
+</div>
+
+<p>
+AI-driven startup identity and visual systems studio helping founders build future-focused brands through cinematic storytelling, scalable branding systems, and real-world execution.
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 xColor. Built with precision.
+</div>
+
+</div>
+
+</footer>
 
 <script
 src="https://assets.calendly.com/assets/external/widget.js"
